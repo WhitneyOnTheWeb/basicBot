@@ -61,7 +61,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    API.sendChat("/me http//33.media.tumblr.com/tumblr_lfclubAcxw1qe91wdo1_400.gif");
+                    API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                 }
             }
         };
