@@ -45,8 +45,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
-                    API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
+                    //API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                 }
             }
         };
@@ -60,8 +60,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
-                    return API.sendChat("/me http://i.imgur.com/tcnm9.gif");
+                    API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
+                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
                 }
             }
         };
@@ -75,13 +75,13 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                 }
             }
         };
         
-                // !inventory
+        // !inventory
         bot.commands.inventoryCommand = {
             command: 'physicalfuckinginventory',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
