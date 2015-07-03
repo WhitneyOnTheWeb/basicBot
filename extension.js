@@ -58,9 +58,9 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "basicBot",
+        botName: "Chembot 4.20",
         language: "english",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
+        chatLink: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/lang/en.json",
         startupCap: 1, // 1-200
         startupVolume: 0, // 0-100
         startupEmoji: false, // true or false
@@ -114,9 +114,9 @@
         songstats: true,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/NSFWlist.json",
-            OP: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/OPlist.json",
-            BANNED: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/BANNEDlist.json"
+            NSFW: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/NSFWlist.json",
+            OP: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/OPlist.json",
+            BANNED: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/BANNEDlist.json"
         }
     }));
 
