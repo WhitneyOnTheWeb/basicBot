@@ -96,13 +96,12 @@
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                     API.sendChat("PHYSICAL FUCKING INVENTORY!!!");
-                    API.sendChat("/me looks around the room to see who is here.");
                 }
             }
         };
         
         // !multipass
-        bot.commands.derpCommand = {
+        bot.commands.multipassCommand = {
             command: 'multipass',  //The command to be called. With the standard command literal this would be: !multipass
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -113,6 +112,22 @@
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
                     API.sendChat("/me [@" + chat.un + "] http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                }
+            }
+        };
+        
+        // !passesit
+        bot.commands.passesitCommand = {
+            command: 'passesit',  //The command to be called. With the standard command literal this would be: !multipass
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:");
                 }
             }
         };
