@@ -46,6 +46,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     API.sendChat('/me [@' + API.getUser().username + '] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif');
+                    API.sendChat(subChat(basicBot.chat.validgiftags, {name: chat.un}));
                 }
             }
         };
