@@ -46,7 +46,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
-                    API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    return API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                 }
             }
         };
@@ -61,7 +61,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    return API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                 }
             }
         };
