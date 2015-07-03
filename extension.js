@@ -35,7 +35,7 @@
 
          */
         
-        // !2girls1cup
+        //
         bot.commands.twogirlsonecupCommand = {
             command: '2girls1cup',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
@@ -49,7 +49,7 @@
             }
         };
         
-        // !bacon
+        //
         bot.commands.baconCommand = {
             command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
@@ -58,7 +58,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    return API.sendChat(subChat(basicBot.chat.validgiftags, {name: chat.un} + "/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif"));
+                    return API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                 }
             }
         };
