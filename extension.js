@@ -45,8 +45,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat('/me [@' + API.getUser().username + '] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif');
-                    API.sendChat(subChat(basicBot.chat.validgiftags, {name: chat.un}));
+                    API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
                 }
             }
         };
@@ -59,12 +58,12 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "basicBot",
+        botName: "Chembot 4.20",
         language: "english",
-        chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
-        startupCap: 1, // 1-200
+        chatLink: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/lang/en.json",
+        startupCap: 10, // 1-200
         startupVolume: 0, // 0-100
-        startupEmoji: false, // true or false
+        startupEmoji: true, // true or false
         autowoot: true,
         smartSkip: true,
         cmdDeletion: true,
@@ -115,9 +114,9 @@
         songstats: true,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/NSFWlist.json",
-            OP: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/OPlist.json",
-            BANNED: "https://rawgit.com/" + fork + "/basicBot-customization/master/blacklists/BANNEDlist.json"
+            NSFW: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/NSFWlist.json",
+            OP: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/OPlist.json",
+            BANNED: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/BANNEDlist.json"
         }
     }));
 
