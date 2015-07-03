@@ -45,7 +45,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
+                    API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                 }
             }
         };
@@ -59,7 +60,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    API.sendChat("/me http//33.media.tumblr.com/tumblr_lfclubAcxw1qe91wdo1_400.gif");
                 }
             }
         };
