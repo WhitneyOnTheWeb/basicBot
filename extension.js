@@ -68,6 +68,22 @@
             }
         };
         
+        // !420
+        bot.commands.fourtwentyCommand = {
+            command: '420',  //The command to be called. With the standard command literal this would be: !420
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://theredspeechballoon.files.wordpress.com/2011/04/420.gif");
+                }
+            }
+        };
+        
         // !derp
         bot.commands.derpCommand = {
             command: 'derp',  //The command to be called. With the standard command literal this would be: !derp
