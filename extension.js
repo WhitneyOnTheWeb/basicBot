@@ -94,7 +94,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
-                    API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
+                    //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                 }
             }
         };
@@ -110,7 +110,7 @@
         botName: "Chembot 4.20",
         language: "english",
         chatLink: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/lang/en.json",
-        startupCap: 1, // 1-200
+        startupCap: 10, // 1-200
         startupVolume: 0, // 0-100
         startupEmoji: true, // true or false
         autowoot: true,
