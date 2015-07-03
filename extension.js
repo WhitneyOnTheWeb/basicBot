@@ -35,6 +35,7 @@
 
          */
         
+
         // !bacon
         bot.commands.baconCommand = {
             command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
@@ -61,8 +62,8 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
-                    API.sendChat("/me http://i.imgur.com/tcnm9.gif");
-                    //API.sendChat("/me @" + chat.un + ",http://i.imgur.com/tcnm9.gif");
+                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/tcnm9.gif");
                 }
             }
         };
@@ -77,8 +78,8 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
-                    //API.sendChat("/me @" + chat.un + ",https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                 }
             }
         };
@@ -94,7 +95,8 @@
                 else {
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
-                    API.sendChat("/me PHYSICAL FUCKING INVENTORY!!!");
+                    API.sendChat("PHYSICAL FUCKING INVENTORY!!!");
+                    API.sendChat("/me looks around the room to see who is here.");
                 }
             }
         };
