@@ -64,6 +64,7 @@
     "derp": "\/me [@%%NAME%%] http\/\/33.media.tumblr.com\/tumblr_lfclubAcxw1qe91wdo1_400.gif",
     "bacon": "\/me [@%%NAME%%] http:\/\/big.assets.huffingtonpost.com\/slide_297900_2459978_free.gif",
     "blazing": "\/me [@%%NAME%%] http:\/\/i.imgur.com\/tcnm9.gif",
+    "inventory": "\/me @%%NAME%% screams \"PHYSICAL FUCKING INVENTORY!\" and looks around the room to see who's here.",
     "nodatafound": "No previous data found.",
     "currentlang": "\/me Language currently set to: %%LANGUAGE%%",
     "langerror": "\/me The language you've selected isn't available. Please visit %%LINK%% to find a list of languages available.",
