@@ -117,7 +117,7 @@
         };
         
         // !lunch
-        bot.commands.multipassCommand = {
+        bot.commands.lunchCommand = {
             command: 'lunch',  //The command to be called. With the standard command literal this would be: !lunch
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
