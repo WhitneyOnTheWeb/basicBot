@@ -127,7 +127,7 @@
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://giphy.com/gifs/420-bobs-burgers-lacey-micallef-10ipb798xgDruE");
+                    API.sendChat("/me [@" + chat.un + "] http://33.media.tumblr.com/32e9c1052ef98bd0d493e256604f2f20/tumblr_muiq3tdQNO1rcufs7o1_500.gif");
                 }
             }
         };
@@ -195,7 +195,7 @@
         voteSkipLimit: 10,
         historySkip: false,
         timeGuard: true,
-        maximumSongLength: 10,
+        maximumSongLength: 18,
         autodisable: true,
         commandCooldown: 30,
         usercommandsEnabled: true,
