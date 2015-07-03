@@ -46,7 +46,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
-                    return API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                 }
             }
         };
@@ -61,7 +61,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    return API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                 }
             }
         };
@@ -130,9 +130,9 @@
         songstats: true,
         commandLiteral: "!",
         blacklists: {
-            NSFW: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/NSFWlist.json",
-            OP: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/OPlist.json",
-            BANNED: "https://rawgit.com/" + fork + "/basicBot/master/blacklists/BANNEDlist.json"
+            NSFW: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/NSFWlist.json",
+            OP: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/OPlist.json",
+            BANNED: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/BANNEDlist.json"
         }
     }));
 
