@@ -90,8 +90,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
-                    API.sendChat("/me AHHHHHHHH!");
+                    //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
+                    API.sendChat("/me screams "PHYSICAL FUCKING INVENTORY" and looks around the room to see who is here.");
                 }
             }
         };
