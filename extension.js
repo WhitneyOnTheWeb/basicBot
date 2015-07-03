@@ -94,7 +94,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
-                    API.sendChat("/me screams "PHYSICAL FUCKING INVENTORY!" and looks around the room to see who is here.");
+                    API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                 }
             }
         };
