@@ -63,7 +63,7 @@
         chatLink: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/lang/en.json",
         startupCap: 1, // 1-200
         startupVolume: 0, // 0-100
-        startupEmoji: false, // true or false
+        startupEmoji: true, // true or false
         autowoot: true,
         smartSkip: true,
         cmdDeletion: true,
