@@ -38,6 +38,26 @@ bot.getNewBlacklistedSongs(); //get a javascript object
 bot.logNewBlacklistedSongs(); //get a list
 ```
 
+---------
+Triggers
+---------
+!420               http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif
+!bacon             http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif
+!blazing           http://i.imgur.com/tcnm9.gif
+!derp              https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif
+!inventory         PHYSICAL FUCKING INVENTORY!!!
+!lunch             http://giphy.com/gifs/420-bobs-burgers-lacey-micallef-10ipb798xgDruE
+!multipass         http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif
+
+
+Feature Requests:
+
+    Slots
+    Bowling
+    Dice Game
+    Lottery
+    Coin Flip
+
 
 Copyright
 ---------
