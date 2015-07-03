@@ -61,7 +61,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
-                    API.sendChat("/me http://i.imgur.com/tcnm9.gif");
+                    return API.sendChat("/me http://i.imgur.com/tcnm9.gif");
                 }
             }
         };
