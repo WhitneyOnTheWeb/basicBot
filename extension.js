@@ -100,7 +100,7 @@
             }
         };
         
-        // !inventory
+                // !inventory
         bot.commands.inventoryCommand = {
             command: 'inventory',  //The command to be called. With the standard command literal this would be: !inventory
             rank: 'user', //Minimum user permission to use the command
@@ -111,7 +111,7 @@
                 else {
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
-                    API.sendChat("PHYSICAL FUCKING INVENTORY!!!");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/Y6Ebyp0.gif");
                 }
             }
         };
