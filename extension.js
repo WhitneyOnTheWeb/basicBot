@@ -100,7 +100,23 @@
             }
         };
         
-                // !inventory
+        // !fez
+        bot.commands.derpCommand = {
+            command: 'fez',  //The command to be called. With the standard command literal this would be: !fez
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.fez, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/byEgkAL2zWPq8/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/byEgkAL2zWPq8/giphy.gif");
+                }
+            }
+        };
+        
+        // !inventory
         bot.commands.inventoryCommand = {
             command: 'inventory',  //The command to be called. With the standard command literal this would be: !inventory
             rank: 'user', //Minimum user permission to use the command
