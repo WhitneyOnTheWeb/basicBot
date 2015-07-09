@@ -77,12 +77,13 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.420, {name: chat.un}));
                     //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
                     API.sendChat("/me [@" + chat.un + "] http://theredspeechballoon.files.wordpress.com/2011/04/420.gif");
                 }
             }
         };
+        
         
         // !derp
         bot.commands.derpCommand = {
@@ -93,7 +94,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.fez, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
                     //API.sendChat("/me http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
                     API.sendChat("/me [@" + chat.un + "] http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
                 }
@@ -125,7 +126,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.glam, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                     API.sendChat("/me [@" + chat.un + "] http://image.blingee.com/images19/content/output/000/000/000/80f/833866944_641688.gif");
                 }
@@ -141,7 +142,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.bunny, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                     API.sendChat("/me [@" + chat.un + "] http://image.blingee.com/images19/content/output/000/000/000/80f/833867504_485902.gif");
                 }
@@ -174,8 +175,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    //API.sendChat(subChat(basicBot.chat.lunch, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
                     API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
                 }
             }
@@ -190,8 +191,8 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                    //API.sendChat(subChat(basicBot.chat.mlady, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/iqzBgjLQtlwn6/giphy.gif");
                     API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/iqzBgjLQtlwn6/giphy.gif");
                 }
             }
@@ -206,7 +207,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.multipass, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
                     API.sendChat("/me [@" + chat.un + "] http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
                 }
@@ -222,7 +223,7 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.passesit, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
                     API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:");
                 }
