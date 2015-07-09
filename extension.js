@@ -93,15 +93,15 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
+                    //API.sendChat(subChat(basicBot.chat.fez, {name: chat.un}));
+                    //API.sendChat("/me http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
                     API.sendChat("/me [@" + chat.un + "] http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
                 }
             }
         };
         
         // !fez
-        bot.commands.derpCommand = {
+        bot.commands.fezCommand = {
             command: 'fez',  //The command to be called. With the standard command literal this would be: !fez
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
