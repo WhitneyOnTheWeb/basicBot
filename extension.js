@@ -288,7 +288,7 @@
         themeLink: null,
         fbLink: null,
         youtubeLink: null,
-        website: null,
+        website: "http://rawrmedusa.wix.com/chemical-cowboys",
         intervalMessages: [],
         messageInterval: 5,
         songstats: true,
