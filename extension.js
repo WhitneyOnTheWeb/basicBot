@@ -215,20 +215,50 @@
         };
         
         // !passesit
-        bot.commands.passesitCommand = {
-            command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !multipass
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.passesit, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:");
-                }
-            }
-        };
+        //bot.commands.passesitCommand = {
+        //    command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !passesit
+        //    rank: 'user', //Minimum user permission to use the command
+        //    type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+        //    functionality: function (chat, cmd) {
+        //        if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+        //        if (!bot.commands.executable(this.rank, chat)) return void (0);
+        //        else {
+        //            API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:");
+        //        }
+        //    }
+        //};
+		
+	bot.commands.passesitCommand: { 
+            command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !passesit
+            rank: 'user', 
+            type: 'startsWith',  
+            functionality: function (chat, cmd) { 
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0); 
+                if (!basicBot.commands.executable(this.rank, chat)) return void (0); 
+                else { 
+                    var msg = chat.message; 
+					var space = msg.indexOf(' '); 
+                         if (space === -1) { 
+                             API.sendChat("/me sparks one up and burns it all the way to the ground. :herb: :smoking: Share next time!"); 
+                             return false; 
+                         } 
+                         else { 
+                             var name = msg.substring(space + 2); 
+                             var user = basicBot.userUtilities.lookupUserName(name); 
+                             if (user === false || !user.inRoom) { 
+                                 return API.sendChat("/me takes one quick puff and looks around for @" + name + ", but doesn't see them :herb: :smoking:"); 
+                             } 
+                             else if (user.username === chat.un) { 
+                                 return API.sendChat("/me sparks one up and burns it all the way to the ground. :herb: :smoking: Share next time!"); 
+                             } 
+                             else { 
+                                 return API.sendChat("/me takes one quick puff and passes it to @" + name + " :herb: :smoking:, keep it going!"); 
+                             } 
+                        } 
+                 } 
+            } 
+        }; 
+
 
         //Load the chat package again to account for any changes
         bot.loadChat();
