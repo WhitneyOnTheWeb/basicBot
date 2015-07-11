@@ -197,6 +197,38 @@
             }
         };
         
+        // !food
+        bot.commands.foodCommand = {
+            command: 'food',  //The command to be called. With the standard command literal this would be: !food
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.food, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/7Qztpv5mTzgqs/giphy.gif");
+                }
+            }
+        };
+        
+        // !fucked
+        bot.commands.fuckedCommand = {
+            command: 'fucked',  //The command to be called. With the standard command literal this would be: !fucked
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.fucked, {name: chat.un}));
+                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/JNa20imi2DWZG/giphy.gif");
+                }
+            }
+        };
+        
         // !lunch
         bot.commands.lunchCommand = {
             command: 'lunch',  //The command to be called. With the standard command literal this would be: !lunch
@@ -241,6 +273,22 @@
                     //API.sendChat(subChat(basicBot.chat.multipass, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
                     API.sendChat("/me [@" + chat.un + "] http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                }
+            }
+        };
+        
+        // !heisenberg
+        bot.commands.heisenbergCommand = {
+            command: ['breakingbad', 'heisenberg'],  //The command to be called. With the standard command literal this would be: !heisenberg
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.heisenberg, {name: chat.un}));
+                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/B1wNXKUJy6qu4/giphy.gif");
                 }
             }
         };
