@@ -57,6 +57,10 @@
             command: ['blaze', 'blazing'],  //The command to be called. With the standard command literal this would be: !blazing
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            getPot: function (chat) {
+               var c = Math.floor(Math.random() * bot.chat.blazing.length);
+               return bot.chat.blazing[c];
+                },
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
@@ -260,21 +264,6 @@
                  } 
             } 
         }; 
-        
-        // !pot
-        bot.commands.potCommand = {
-            command: ['pot'],  //The command to be called. With the standard command literal this would be: !pot
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
-                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media0.giphy.com/media/GZpts562aXPDW/giphy.gif");
-            }
-        };
 
 
         //Load the chat package again to account for any changes
