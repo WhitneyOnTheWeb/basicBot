@@ -228,7 +228,7 @@
         //    }
         //};
 		
-	bot.commands.passesitCommand: { 
+		bot.commands.passesitCommand: = { 
             command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !passesit
             rank: 'user', 
             type: 'startsWith',  
