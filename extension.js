@@ -233,7 +233,7 @@
                              var name = msg.substring(space + 2); 
                              var user = bot.userUtilities.lookupUserName(name); 
                              if (user === false || !user.inRoom) { 
-                                 return API.sendChat("/me takes one quick puff and looks around for @" + name + ", but doesn't see them :herb: :smoking:"); 
+                                 return API.sendChat("/me @" + chat.un + " takes one quick puff and looks around for @" + name + ", but doesn't see them :herb: :smoking: @" + chat.un + " passes it to @Chembot instead."); 
                              } 
                              else if (user.username === chat.un) { 
                                  return API.sendChat("/me @" + chat.un + " sparks one up and burns it all the way to the ground. :herb: :smoking: Share next time!"); 
