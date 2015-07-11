@@ -57,14 +57,19 @@
             command: ['blaze', 'blazing'],  //The command to be called. With the standard command literal this would be: !blazing
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            getPot: function (chat) {
+               var c = Math.floor(Math.random() * bot.chat.blazing.length);
+               return bot.chat.blazing[c];
+                },
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
                     //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/tcnm9.gif");
-                }
+                    //API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/tcnm9.gif");
+                    return API.sendChat(subChat(bot.chat.blazing, {name: chat.un, blazing: this.getPot()}));
+                    }
             }
         };
         
