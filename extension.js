@@ -2,6 +2,20 @@
     
     //Change this to your GitHub username so you don't have to modify so many things.
     var fork = "WhitneyOnTheWeb";
+    var subChat = function (chat, obj) {
+        if (typeof chat === "undefined") {
+            API.chatLog("There is a chat text missing.");
+            console.log("There is a chat text missing.");
+            return "[Error] No text message found.";
+
+            // TODO: Get missing chat messages from source.
+        }
+        var lit = '%%';
+        for (var prop in obj) {
+            chat = chat.replace(lit + prop.toUpperCase() + lit, obj[prop]);
+        }
+        return chat;
+    };
 		
     //Define our function responsible for extending the bot.
     function extend() {
@@ -89,10 +103,25 @@
             }
         };
         
-        
         // !derp
         bot.commands.derpCommand = {
             command: 'derp',  //The command to be called. With the standard command literal this would be: !derp
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                }
+            }
+        };
+        
+        // !derp2
+        bot.commands.derptwoCommand = {
+            command: 'derp2',  //The command to be called. With the standard command literal this would be: !derp2
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
