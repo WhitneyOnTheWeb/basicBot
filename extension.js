@@ -229,7 +229,7 @@
         };
 		
 		bot.commands.passitCommand = { 
-            command: ['passit'],  //The command to be called. With the standard command literal this would be: !passit
+            command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !passit
             rank: 'user', 
             type: 'startsWith',  
             functionality: function (chat, cmd) { 
@@ -239,7 +239,7 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
                          if (space === -1) { 
-                             API.sendChat("/me sparks one up and burns it all the way to the ground. :herb: :smoking: Share next time!"); 
+                             API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:"); 
                              return false; 
                          } 
                          else { 
