@@ -1,5 +1,3 @@
-
-//<script language="javascript" src="https://github.com/Yemasthui/basicBot/blob/master/basicBot.js"></script>
 (function () {
     
     //Change this to your GitHub username so you don't have to modify so many things.
