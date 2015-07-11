@@ -228,13 +228,13 @@
             }
         };
 		
-		bot.commands.passitaroundCommand = { 
-            command: ['passit'],  //The command to be called. With the standard command literal this would be: !passesit
+		bot.commands.passitCommand = { 
+            command: ['passit'],  //The command to be called. With the standard command literal this would be: !passit
             rank: 'user', 
             type: 'startsWith',  
             functionality: function (chat, cmd) { 
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0); 
-                if (!basicBot.commands.executable(this.rank, chat)) return void (0); 
+                if (!bot.commands.executable(this.rank, chat)) return void (0); 
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
@@ -244,7 +244,7 @@
                          } 
                          else { 
                              var name = msg.substring(space + 2); 
-                             var user = basicBot.userUtilities.lookupUserName(name); 
+                             var user = bot.userUtilities.lookupUserName(name); 
                              if (user === false || !user.inRoom) { 
                                  return API.sendChat("/me takes one quick puff and looks around for @" + name + ", but doesn't see them :herb: :smoking:"); 
                              } 
