@@ -54,7 +54,7 @@
         
         // !blazing
         bot.commands.blazingCommand = {
-            command: 'blazing',  //The command to be called. With the standard command literal this would be: !blazing
+            command: ['blaze', 'blazing'],  //The command to be called. With the standard command literal this would be: !blazing
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -152,7 +152,7 @@
         
         // !inventory
         bot.commands.inventoryCommand = {
-            command: 'inventory',  //The command to be called. With the standard command literal this would be: !inventory
+            command: ['inventory', 'pfi'],  //The command to be called. With the standard command literal this would be: !inventory
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -216,7 +216,7 @@
         
         // !passesit
         bot.commands.passesitCommand = {
-            command: 'passesit',  //The command to be called. With the standard command literal this would be: !multipass
+            command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !multipass
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
