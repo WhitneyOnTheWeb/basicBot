@@ -52,6 +52,22 @@
             }
         };
         
+        // !badtrip
+        bot.commands.badtripCommand = {
+            command: 'badtrip',  //The command to be called. With the standard command literal this would be: !badtrip
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.badtrip, {name: chat.un}));
+                    //API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/JJAo5CW.gif");
+                }
+            }
+        };
+        
         // !blazing
         bot.commands.blazingCommand = {
             command: ['blaze', 'blazing'],  //The command to be called. With the standard command literal this would be: !blazing
