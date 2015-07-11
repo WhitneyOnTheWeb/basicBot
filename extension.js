@@ -159,7 +159,7 @@
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
                     //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://i119.photobucket.com/albums/o128/PsychoDragonX/WhysTheRumGone.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_md1xf6FRbP1rxf6yzo1_500.gif");
                 }
             }
         };
