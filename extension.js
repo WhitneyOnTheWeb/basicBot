@@ -64,6 +64,7 @@
                     //API.sendChat(subChat(basicBot.chat.blazing, {name: chat.un}));
                     //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
                     API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/tcnm9.gif");
+                }
             }
         };
         
@@ -260,7 +261,7 @@
             } 
         }; 
         
-        // !blazing
+        // !pot
         bot.commands.potCommand = {
             command: ['pot'],  //The command to be called. With the standard command literal this would be: !pot
             rank: 'user', //Minimum user permission to use the command
