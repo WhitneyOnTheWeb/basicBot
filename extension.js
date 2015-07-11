@@ -148,6 +148,22 @@
             }
         };
         
+        // !rum
+        bot.commands.rumCommand = {
+            command: 'rum',  //The command to be called. With the standard command literal this would be: !derp
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] http://i119.photobucket.com/albums/o128/PsychoDragonX/WhysTheRumGone.gif");
+                }
+            }
+        };
+        
         // !derp2
         bot.commands.derptwoCommand = {
             command: 'derp2',  //The command to be called. With the standard command literal this would be: !derp2
