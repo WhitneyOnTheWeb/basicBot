@@ -52,25 +52,9 @@
             }
         };
         
-        // !badtrip
-        bot.commands.badtripCommand = {
-            command: 'badtrip',  //The command to be called. With the standard command literal this would be: !badtrip
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.badtrip, {name: chat.un}));
-                    //API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/JJAo5CW.gif");
-                }
-            }
-        };
-        
         // !blazing
         bot.commands.blazingCommand = {
-            command: ['blaze', 'blazing'],  //The command to be called. With the standard command literal this would be: !blazing
+            command: 'blazing',  //The command to be called. With the standard command literal this would be: !blazing
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -100,37 +84,6 @@
             }
         };
         
-        // !celebrate
-        bot.commands.celebrateCommand = {
-            command: 'celebrate',  //The command to be called. With the standard command literal this would be: !crab
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chatcrab, {name: chat.un}));
-                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://i205.photobucket.com/albums/bb200/bobbadowski/gif/wtf.gif");
-                }
-            }
-        };
-        
-        // !crab
-        bot.commands.crabCommand = {
-            command: 'crab',  //The command to be called. With the standard command literal this would be: !crab
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chatcrab, {name: chat.un}));
-                    //API.sendChat("/me https://33.media.tumblr.com/tumblr_m9g0owW0XJ1rqfhi2o1_400.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/Ehl2Haxp48wP6/giphy.gif");
-                }
-            }
-        };
         
         // !derp
         bot.commands.derpCommand = {
@@ -142,40 +95,24 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
-                }
-            }
-        };
-        
-        // !rum
-        bot.commands.rumCommand = {
-            command: 'rum',  //The command to be called. With the standard command literal this would be: !derp
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_md1xf6FRbP1rxf6yzo1_500.gif");
-                }
-            }
-        };
-        
-        // !derp2
-        bot.commands.derptwoCommand = {
-            command: 'derp2',  //The command to be called. With the standard command literal this would be: !derp2
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
                     //API.sendChat("/me http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
                     API.sendChat("/me [@" + chat.un + "] http://i1201.photobucket.com/albums/bb342/Sleepy-eyed-teen/Gifs/1254425341423.gif");
+                }
+            }
+        };
+        
+        // !error
+        bot.commands.errorCommand = {
+            command: 'error',  //The command to be called. With the standard command literal this would be: !error
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.error, {name: chat.un}));
+                    //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
+                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/OoeleLF.gif");
                 }
             }
         };
@@ -231,7 +168,7 @@
         
         // !inventory
         bot.commands.inventoryCommand = {
-            command: ['inventory', 'pfi'],  //The command to be called. With the standard command literal this would be: !inventory
+            command: 'inventory',  //The command to be called. With the standard command literal this would be: !inventory
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -241,38 +178,6 @@
                     //API.sendChat(subChat(basicBot.chat.inventory, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                     API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/Y6Ebyp0.gif");
-                }
-            }
-        };
-        
-        // !food
-        bot.commands.foodCommand = {
-            command: 'food',  //The command to be called. With the standard command literal this would be: !food
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.food, {name: chat.un}));
-                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/7Qztpv5mTzgqs/giphy.gif");
-                }
-            }
-        };
-        
-        // !fucked
-        bot.commands.fuckedCommand = {
-            command: 'fucked',  //The command to be called. With the standard command literal this would be: !fucked
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.fucked, {name: chat.un}));
-                    //API.sendChat("/me http://media.giphy.com/media/10ipb798xgDruE/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/JNa20imi2DWZG/giphy.gif");
                 }
             }
         };
@@ -325,134 +230,22 @@
             }
         };
         
-        // !heisenberg
-        bot.commands.heisenbergCommand = {
-            command: ['breakingbad', 'heisenberg'],  //The command to be called. With the standard command literal this would be: !heisenberg
+        // !passesit
+        bot.commands.passesitCommand = {
+            command: 'passesit',  //The command to be called. With the standard command literal this would be: !multipass
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.heisenberg, {name: chat.un}));
-                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/B1wNXKUJy6qu4/giphy.gif");
-                }
-            }
-        };
-        
-        // !parov
-        bot.commands.parovCommand = {
-            command: ['parov', 'swingtempo'],  //The command to be called. With the standard command literal this would be: !parov
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.parov, {name: chat.un}));
-                    //API.sendChat("/me http://i.imgur.com/tcnm9.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/my2K6hWbwhqak/giphy.gif");
-                }
-            }
-        };
-        
-        // !passit
-		bot.commands.passitCommand = { 
-            command: ['passit', 'passesit'],  //The command to be called. With the standard command literal this would be: !passit
-            rank: 'user', 
-            type: 'startsWith',  
-            functionality: function (chat, cmd) { 
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0); 
-                if (!bot.commands.executable(this.rank, chat)) return void (0); 
-                else { 
-                    var msg = chat.message; 
-					var space = msg.indexOf(' '); 
-                         if (space === -1) { 
-                             API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:"); 
-                             return false; 
-                         } 
-                         else { 
-                             var name = msg.substring(space + 2); 
-                             var user = bot.userUtilities.lookupUserName(name); 
-                             if (user === false || !user.inRoom) { 
-                                 return API.sendChat("/me @" + chat.un + " takes one quick puff and looks around for @" + name + ", but doesn't see them :herb: :smoking: @" + chat.un + " passes it to @Chembot instead."); 
-                             } 
-                             else if (user.username === chat.un) { 
-                                 return API.sendChat("/me @" + chat.un + " sparks one up and burns it all the way to the ground. :herb: :smoking: Share next time!"); 
-                             } 
-                             else { 
-                                 return API.sendChat("/me @" + chat.un + " takes one quick puff and passes it to @" + name + " :herb: :smoking: Keep it going!"); 
-                             } 
-                        } 
-                 } 
-            } 
-        }; 
-        
-        // !pizza
-        bot.commands.pizzaCommand = {
-            command: 'pizza',  //The command to be called. With the standard command literal this would be: !pizza
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.pizza, {name: chat.un}));
+                    //API.sendChat(subChat(basicBot.chat.passesit, {name: chat.un}));
                     //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/osfGFZAb12gvu/giphy.gif");
+                    API.sendChat("/me @" + chat.un + " takes one quick puff and then passes it to the left :herb: :smoking:");
                 }
             }
         };
 
-        // !pot
-        bot.commands.potCommand = {
-            command: 'pot',  //The command to be called. With the standard command literal this would be: !pot
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.pot, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media0.giphy.com/media/GZpts562aXPDW/giphy.gif");
-                }
-            }
-        };
-        
-        // !spirit
-        bot.commands.spiritCommand = {
-            command: 'spirit',  //The command to be called. With the standard command literal this would be: !spirit
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.spirit, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://media.giphy.com/media/YvOjs0FETL6fe/giphy.gif");
-                }
-            }
-        };
-        
-        // !upvote
-        bot.commands.upvoteCommand = {
-            command: 'upvote',  //The command to be called. With the standard command literal this would be: !upvote
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.pot, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
-                    API.sendChat("/me [@" + chat.un + "] http://i.imgur.com/uM6gTer.gif");
-                }
-            }
-        };
-        
         //Load the chat package again to account for any changes
         bot.loadChat();
 
