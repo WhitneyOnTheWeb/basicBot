@@ -9,7 +9,7 @@
         if (!window.bot) {
             return setTimeout(extend, 1 * 1000);
         }
-
+        
         //Precaution to make sure it is assigned properly.
         var bot = window.bot;
 
@@ -148,22 +148,6 @@
             }
         };
         
-        // !rum
-        bot.commands.rumCommand = {
-            command: 'rum',  //The command to be called. With the standard command literal this would be: !derp
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
-                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
-                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_md1xf6FRbP1rxf6yzo1_500.gif");
-                }
-            }
-        };
-        
         // !derp2
         bot.commands.derptwoCommand = {
             command: 'derp2',  //The command to be called. With the standard command literal this would be: !derp2
@@ -224,6 +208,38 @@
                     //API.sendChat(subChat(basicBot.chat.glam, {name: chat.un}));
                     //API.sendChat("/me screams ""PHYSICAL FUCKING INVENTORY!"" and looks around the room to see who is here.");
                     API.sendChat("/me [@" + chat.un + "] http://image.blingee.com/images19/content/output/000/000/000/80f/833866944_641688.gif");
+                }
+            }
+        };
+        
+        // !goog
+        bot.commands.googCommand = {
+            command: 'goog',  //The command to be called. With the standard command literal this would be: !goog
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.goog, {name: chat.un}));
+                    //API.sendChat("/me https://33.media.tumblr.com/869693b999179e6d54a7e23133740167/tumblr_nplshl0zFv1tbdiu9o1_400.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/869693b999179e6d54a7e23133740167/tumblr_nplshl0zFv1tbdiu9o1_400.gif");
+                }
+            }
+        };
+        
+        // !rum
+        bot.commands.rumCommand = {
+            command: 'rum',  //The command to be called. With the standard command literal this would be: !derp
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    //API.sendChat(subChat(basicBot.chat.derp, {name: chat.un}));
+                    //API.sendChat("/me http://media0.giphy.com/media/CzQ9Kl1UIt8hG/giphy.gif");
+                    API.sendChat("/me [@" + chat.un + "] https://33.media.tumblr.com/tumblr_md1xf6FRbP1rxf6yzo1_500.gif");
                 }
             }
         };
