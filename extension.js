@@ -573,7 +573,7 @@
                            ],
         messageInterval: 7,
         songstats: true,
-        commandLiteral: ["!", "/"],
+        commandLiteral: "!",
         blacklists: {
             NSFW: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/NSFWlist.json",
             OP: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/OPlist.json",
