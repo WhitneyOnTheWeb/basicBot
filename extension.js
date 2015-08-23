@@ -19,7 +19,6 @@
         /*
          Extend the bot here, either by calling another function or here directly.
          Model code for a bot command:
-
          bot.commands.commandCommand = {
          command: 'cmd',
          rank: 'user/bouncer/mod/manager',
@@ -32,9 +31,9 @@
          }
          }
          }
-
          */
         
+
         // !bacon
         bot.commands.baconCommand = {
             command: 'bacon',  //The command to be called. With the standard command literal this would be: !bacon
@@ -492,7 +491,7 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-        botName: "Chembot",
+        botName: "Chembot 4.20",
         language: "english",
         chatLink: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/lang/en.json",
         startupCap: 10, // 1-200
@@ -515,11 +514,11 @@
         voteSkipLimit: 10,
         historySkip: false,
         timeGuard: true,
-        maximumSongLength: 20,
+        maximumSongLength: 18,
         autodisable: true,
         commandCooldown: 30,
         usercommandsEnabled: true,
-        skipPosition: 2,
+        skipPosition: 3,
         skipReasons: [
             ["theme", "This song does not fit the room theme. "],
             ["op", "This song is on the OP list. "],
@@ -537,41 +536,14 @@
         filterChat: false,
         etaRestriction: false,
         welcome: true,
-        opLink: "https://github.com/WhitneyOnTheWeb/basicBot/blob/master/blacklists/OPlist.json",
+        opLink: null,
         rulesLink: null,
         themeLink: null,
         fbLink: null,
         youtubeLink: null,
         website: "http://rawrmedusa.wix.com/chemical-cowboys",
-        intervalMessages: [
-                           ["Nice tracks, keep em' coming!"],
-                           ["I'm really getting into the music!"],
-                           ["Take a toke, pass it around and play some more groovy toons!"],
-                           ["Once you replace negative thoughts with positive ones, you'll start having positive results... like my drug test."],
-                           ["My doctor tells me I should start slowing it down - but there are more old drunks than there are old doctors so let's all have another round."],
-                           ["I believe that all roads lead to the same place - and that is wherever all roads lead to."],
-                           ["I didn't come here and I ain't leavin'."],
-                           ["Great songs stand out wherever they're from."],
-                           ["There are only so many notes so there must be only so many melodies."],
-                           ["If music be the food of love, play on."],
-                           ["Where words fail, music speaks."],
-                           ["Switch it up! Musical chairs for musical songs!"],
-                           ["Music is the strongest form of magic."],
-                           ["Anyone got a light?"],
-                           ["Music in the soul can be heard by the universe."],
-                           ["You are the music while the music lasts."],
-                           ["Music is my religion."],
-                           ["How much longer until Burning Man?"],
-                           ["The true object of all human life is play."],
-                           ["Lose your dream, you lose your mind"],
-                           ["Words make you think. Music makes you feel. A song makes you feel a thought."],
-                           ["I think there is a song out there to describe just about any situation."],
-                           ["!passit @Chembot"],
-                           ["Man, I love you guys..."],
-                           ["/me grooves to the music"],
-                           ["Troubling times we're in... troubling times."]
-                          ],
-        messageInterval: 6,
+        intervalMessages: [],
+        messageInterval: 5,
         songstats: true,
         commandLiteral: "!",
         blacklists: {
