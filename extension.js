@@ -538,7 +538,7 @@
         filterChat: false,
         etaRestriction: false,
         welcome: true,
-        opLink: null,
+        opLink: "https://github.com/WhitneyOnTheWeb/basicBot/blob/master/blacklists/OPlist.json",
         rulesLink: null,
         themeLink: null,
         fbLink: null,
@@ -573,7 +573,7 @@
                            ],
         messageInterval: 7,
         songstats: true,
-        commandLiteral: ['!', '/'],
+        commandLiteral: ["!", "/"],
         blacklists: {
             NSFW: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/NSFWlist.json",
             OP: "https://rawgit.com/WhitneyOnTheWeb/basicBot/master/blacklists/OPlist.json",
