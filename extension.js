@@ -1,4 +1,3 @@
-/* global bot */
 (function () {
     
     //Change this to your GitHub username so you don't have to modify so many things.
@@ -571,8 +570,8 @@
                            ["Man, I love you guys..."],
                            ["/me grooves to the music"],
                            ["Troubling times we're in... troubling times."]
-                           ],
-        messageInterval: 7,
+                          ],
+        messageInterval: 6,
         songstats: true,
         commandLiteral: "!",
         blacklists: {
