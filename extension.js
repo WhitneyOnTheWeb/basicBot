@@ -458,22 +458,22 @@
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
                 var slotArray = [':lemon:',
-                                      ':tangerine:', 
-                                      ':strawberry:', 
-                                      ':pineapple:', 
-                                      ':apple:', 
-                                      ':grapes:', 
-                                      ':watermelon:', 
-                                      ':cherries:', 
-                                      ':green_heart:', 
-                                      ':bell:', 
-                                      ':gem:', 
-                                      ':slots_seven:'];
+                                 ':tangerine:',
+                                 ':strawberry:', 
+                                 ':pineapple:', 
+                                 ':apple:', 
+                                 ':grapes:', 
+                                 ':watermelon:', 
+                                 ':cherries:', 
+                                 ':green_heart:', 
+                                 ':bell:', 
+                                 ':gem:', 
+                                 ':slots_seven:'];
                      
-                     //Pick Three Random Symbols from valid symbols
-                     var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                     var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                     var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                //Pick Three Random Symbols from valid symbols
+                var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
                      
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
@@ -689,32 +689,32 @@
         youtubeLink: null,
         website: "http://rawrmedusa.wix.com/chemical-cowboys",
         intervalMessages: [
-                           ["Nice tracks, keep em' coming!"],
-                           ["I'm really getting into the music!"],
-                           ["Take a toke, pass it around and play some more groovy toons!"],
-                           ["Once you replace negative thoughts with positive ones, you'll start having positive results... like my drug test."],
-                           ["My doctor tells me I should start slowing it down - but there are more old drunks than there are old doctors so let's all have another round."],
-                           ["I believe that all roads lead to the same place - and that is wherever all roads lead to."],
-                           ["I didn't come here and I ain't leavin'."],
-                           ["Great songs stand out wherever they're from."],
-                           ["There are only so many notes so there must be only so many melodies."],
-                           ["If music be the food of love, play on."],
-                           ["Where words fail, music speaks."],
-                           ["Switch it up! Musical chairs for musical songs!"],
-                           ["Music is the strongest form of magic."],
-                           ["Anyone got a light?"],
-                           ["Music in the soul can be heard by the universe."],
-                           ["You are the music while the music lasts."],
-                           ["Music is my religion."],
-                           ["How much longer until Burning Man?"],
-                           ["The true object of all human life is play."],
-                           ["Lose your dream, you lose your mind"],
-                           ["Words make you think. Music makes you feel. A song makes you feel a thought."],
-                           ["I think there is a song out there to describe just about any situation."],
-                           ["!passit @Chembot"],
-                           ["Man, I love you guys..."],
-                           ["/me grooves to the music"],
-                           ["Troubling times we're in... troubling times."]
+                           "Nice tracks, keep em' coming!",
+                           "I'm really getting into the music!",
+                           "Take a toke, pass it around and play some more groovy toons!",
+                           "Once you replace negative thoughts with positive ones, you'll start having positive results... like my drug test.",
+                           "My doctor tells me I should start slowing it down - but there are more old drunks than there are old doctors so let's all have another round.",
+                           "I believe that all roads lead to the same place - and that is wherever all roads lead to.",
+                           "I didn't come here and I ain't leavin'.",
+                           "Great songs stand out wherever they're from.",
+                           "There are only so many notes so there must be only so many melodies.",
+                           "If music be the food of love, play on.",
+                           "Where words fail, music speaks.",
+                           "Switch it up! Musical chairs for musical songs!",
+                           "Music is the strongest form of magic.",
+                           "Anyone got a light?",
+                           "Music in the soul can be heard by the universe.",
+                           "You are the music while the music lasts.",
+                           "Music is my religion.",
+                           "How much longer until Burning Man?",
+                           "The true object of all human life is play.",
+                           "Lose your dream, you lose your mind",
+                           "Words make you think. Music makes you feel. A song makes you feel a thought.",
+                           "I think there is a song out there to describe just about any situation.",
+                           "!passit @Chembot",
+                           "Man, I love you guys...",
+                           "/me grooves to the music",
+                           "Troubling times we're in... troubling times."
                           ],
         messageInterval: 6,
         songstats: true,
