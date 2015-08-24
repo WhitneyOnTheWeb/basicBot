@@ -505,7 +505,7 @@
                          else if (space === -1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
-                            API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + pickOne + pickTwo + pickThree); 
+                            setTimeout(API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots()), 3000); 
                             
                             //Determine Winnings
                             if (pickOne == slotArray[0] && pickTwo == slotArray[0] && pickThree == slotArray[0]) {
