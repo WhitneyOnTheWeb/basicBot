@@ -46,6 +46,7 @@
                 else {
                     API.sendChat("/me [@" + chat.un + "] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                     API.sendChat("/me Bacon!");
+                    return;
                 }
             }
         };
@@ -518,10 +519,6 @@
              return [spinArray[0], spinArray[1], spinArray[2], winnings];                      
         }
         
-        function slotResult(outcome) {
-            return API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
-        }
-        
         // !test
         bot.commands.testCommand = {
             command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
@@ -559,15 +556,13 @@
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             setTimeout(3000);
-                            slotResult(outcome);
-                            //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
+                            API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             setTimeout(3000);
-                            slotResult(outcome);
-                            //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
+                            API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
                          else {
                             return false; 
