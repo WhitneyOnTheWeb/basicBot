@@ -44,8 +44,6 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
-                    //API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                     API.sendChat("/me [@" + chat.un + "] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                     API.sendChat("/me Bacon!");
                 }
@@ -470,8 +468,57 @@
             return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
         }
         
-        function slotOutput() {
-            
+        function spinOutcome(chat, cmd) {
+            var msg = chat.message; 
+			var space = msg.indexOf(' '); 
+            var bet = msg.substring(space + 2); 
+            var winnings;
+            var spinArray = [spinSlots(),
+                             spinSlots(),
+                             spinSlots()];        
+                             
+             //Determine Winnings
+              if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
+                 winnings = Math.round(bet * 1.5);  
+              }      
+              else if (spinArray[0] == ":tangerine:" && spinArray[1] == ":tangerine:" && spinArray[2] == ":tangerine:") {
+                 winnings = bet * 2;  
+              }
+              else if (spinArray[0] == ":strawberry:" && spinArray[1] == ":strawberry:" && spinArray[2] == ":strawberry:") {
+                 winnings = Math.round(bet * 2.5);  
+              }
+              else if (spinArray[0] == ":pineapple:" && spinArray[1] == ":pineapple:" && spinArray[2] == ":pineapple:") {
+                 winnings = bet * 3;  
+              }
+              else if (spinArray[0] == ":apple:" && spinArray[1] == ":apple:" && spinArray[2] == ":apple:") {
+                 winnings = Math.round(bet * 3.5);  
+              }
+              else if (spinArray[0] == ":grapes:" && spinArray[1] == ":grapes:" && spinArray[2] == ":grapes:") {
+                 winnings = bet * 4;   
+              }
+              else if (spinArray[0] == ":watermelon:" && spinArray[1] == ":watermelon:" && spinArray[2] == ":watermelon:") {
+                 winnings = Math.round(bet * 4.5);  
+              }
+              else if (spinArray[0] == ":cherries:" && spinArray[1] == ":cherries:" && spinArray[2] == ":cherries:") {
+                 winnings = bet * 5;  
+              }
+              else if (spinArray[0] == ":green_heart:" && spinArray[1] == ":green_heart:" && spinArray[2] == ":green_heart:") {
+                 winnings = Math.round(bet * 5.5);   
+              }
+              else if (spinArray[0] == ":bell:" && spinArray[1] == ":bell:" && spinArray[2] == ":bell:") {
+                 winnings = bet * 6;   
+              }
+              else if (spinArray[0] == ":gem:" && spinArray[1] == ":gem:" && spinArray[2] == ":gem:") {
+                 winnings = Math.round(bet * 6.5);  
+              }
+              else if (spinArray[0] == ":slot_seven:" && spinArray[1] == ":slot_seven:" && spinArray[2] == ":slot_seven:") {
+                 winnings = bet * 7;   
+              }
+              else{
+                 winnings = 0;  
+              }
+                            
+             return [spinArray[0], spinArray[1], spinArray[2], winnings];                      
         }
         
         // !test
@@ -500,11 +547,7 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
                     var bet = msg.substring(space + 2); 
-                    var winnings;
-                    var spinArray = [spinSlots(),
-                                     spinSlots(),
-                                     spinSlots()];
-                    
+                    var outcome = spinOutcome();
                     //Check Users TOKEn count...
                     
                     //Display Slots
@@ -513,66 +556,27 @@
                              } 
                          else if (space === -1) { 
                             //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
-                            setTimeout(extend, 3000);
-                            API.sendChat("/me " + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinArray[0] + spinArray[1] + spinArray[2]);
-                            setTimeout(extend, 3000);
-                            
-                            //Determine Winnings
-                            if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
-                                winnings = Math.round(bet * 1.5);  
-                            }      
-                            else if (spinArray[0] == ":tangerine:" && spinArray[1] == ":tangerine:" && spinArray[2] == ":tangerine:") {
-                                winnings = bet * 2;  
-                            }
-                            else if (spinArray[0] == ":strawberry:" && spinArray[1] == ":strawberry:" && spinArray[2] == ":strawberry:") {
-                                winnings = Math.round(bet * 2.5);  
-                            }
-                            else if (spinArray[0] == ":pineapple:" && spinArray[1] == ":pineapple:" && spinArray[2] == ":pineapple:") {
-                                winnings = bet * 3;  
-                            }
-                            else if (spinArray[0] == ":apple:" && spinArray[1] == ":apple:" && spinArray[2] == ":apple:") {
-                                winnings = Math.round(bet * 3.5);  
-                            }
-                            else if (spinArray[0] == ":grapes:" && spinArray[1] == ":grapes:" && spinArray[2] == ":grapes:") {
-                                winnings = bet * 4;   
-                            }
-                            else if (spinArray[0] == ":watermelon:" && spinArray[1] == ":watermelon:" && spinArray[2] == ":watermelon:") {
-                                winnings = Math.round(bet * 4.5);  
-                            }
-                            else if (spinArray[0] == ":cherries:" && spinArray[1] == ":cherries:" && spinArray[2] == ":cherries:") {
-                                winnings = bet * 5;  
-                            }
-                            else if (spinArray[0] == ":green_heart:" && spinArray[1] == ":green_heart:" && spinArray[2] == ":green_heart:") {
-                                winnings = Math.round(bet * 5.5);   
-                            }
-                            else if (spinArray[0] == ":bell:" && spinArray[1] == ":bell:" && spinArray[2] == ":bell:") {
-                                winnings = bet * 6;   
-                            }
-                            else if (spinArray[0] == ":gem:" && spinArray[1] == ":gem:" && spinArray[2] == ":gem:") {
-                                winnings = Math.round(bet * 6.5);  
-                            }
-                            else if (spinArray[0] == ":slot_seven:" && spinArray[1] == ":slot_seven:" && spinArray[2] == ":slot_seven:") {
-                                winnings = bet * 7;   
-                            }
-                            else{
-                                winnings = 0;  
-                            }
-                            
-                            setTimeout(extend, 3000);
-                            
-                            //Display Outcome
-                            if (winnings == 0) {
-                                API.sendChat("/me @" + chat.un + ", tough luck... you didn't win anything. I hear gambling is more addictive than marijuana... want to try again?"); 
-                            }
-                            else if (winnings == (bet * 7)) {
-                                API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + winnings + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!");   
-                            }
-                            else {
-                                API.sendChat("/me @" + chat.un + ", excellent spin! You've won " + winnings + " TOKEns! How about another spin?"); 
-                            }
-                            return false; 
+                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin... it finally stops on: ");
+                            API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
+                         else if (bet >= 1) { 
+                            //Start Slots
+                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEn at the ChemSlots, and pulls the handle to spin... " chat.un + " watches the ChemSlots spin... it finally stops on: ");
+                            API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
+                         } 
+                         else {
+                            return false; 
+                         }
+                         //Display Outcome
+                         if (outcome[3] == 0) {
+                            API.sendChat("/me @" + chat.un + ", tough luck... you didn't win anything. I hear gambling is more addictive than marijuana... want to try again?"); 
+                         }
+                         else if (outcome[3] == (bet * 7)) {
+                            API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!");   
+                         }
+                         else {
+                            API.sendChat("/me @" + chat.un + ", excellent spin! You've won " + outcome[3] + " TOKEns! How about another spin?"); 
+                         }
                      } 
             } 
         }; 
