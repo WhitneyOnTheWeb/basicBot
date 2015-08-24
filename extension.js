@@ -558,12 +558,14 @@
                          else if (space === -1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
+                            setTimeout(3000);
                             slotResult(outcome);
                             //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
+                            setTimeout(3000);
                             slotResult(outcome);
                             //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
@@ -572,12 +574,15 @@
                          }
                          //Display Outcome
                          if (outcome[3] == 0) {
+                             setTimeout(1000);
                             API.sendChat("/me @" + chat.un + ", tough luck... you didn't win anything. I hear gambling is more addictive than marijuana... want to try again?"); 
                          }
                          else if (outcome[3] == (bet * 7)) {
+                             setTimeout(1000);
                             API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!");   
                          }
                          else {
+                             setTimeout(1000);
                             API.sendChat("/me @" + chat.un + ", excellent spin! You've won " + outcome[3] + " TOKEns! How about another spin?"); 
                          }
                      } 
