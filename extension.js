@@ -561,7 +561,7 @@
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin... it finally stops on: ");
+                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
                          else {
