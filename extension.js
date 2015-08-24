@@ -500,7 +500,7 @@
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
             
-            if (bet == null || bet == "" || bet == " ") {
+            if (bet == null || bet == "" || bet == " " || bet == "!slot") {
                 bet = 1;
             }
 
@@ -547,13 +547,11 @@
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
                             setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
-                            setTimeout(function() {API.sendChat("\"" + bet + "\"")}, 3000);
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
                             setTimeout(function() {API.sendChat("/me It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
-                            setTimeout(function() {API.sendChat("\"" + bet + "\"")}, 3000);
                          } 
                          else {
                             return false; 
@@ -561,13 +559,13 @@
                          
                          //Display Outcome
                          if (outcome[3] == 0) {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 2000); 
+                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
                          }
                          else if (outcome[3] == (bet * 7)) {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!")}, 2000);   
+                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!")}, 7000);   
                          }
                          else {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 2000);
+                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
                          }
                      } 
             } 
