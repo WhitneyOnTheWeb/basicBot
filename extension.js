@@ -466,7 +466,7 @@
                              ':gem:', 
                              ':slots_seven:'];
 
-            return slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+            return slotArray[Math.floor(Math.random() * (slotArray.length - 1))]; 
         }
         
         // !test
