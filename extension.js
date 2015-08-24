@@ -464,7 +464,7 @@
                              ':green_heart:', 
                              ':bell:', 
                              ':gem:', 
-                             ':slots_seven:'];
+                             ':slot_seven:'];
 
             return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
         }
