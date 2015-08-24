@@ -499,7 +499,7 @@
             var outcome1 = spinSlots(); 
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
-            if (bet == null) {
+            if (bet == null || bet == "" || bet == " ") {
                 bet = 1;
             }
             
