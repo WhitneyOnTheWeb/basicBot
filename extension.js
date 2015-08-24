@@ -466,7 +466,7 @@
                              ':gem:', 
                              ':slots_seven:'];
 
-            return slotArray[Math.floor(Math.random() * (slotArray.length - 1))]; 
+            return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
         }
         
         // !test
@@ -495,6 +495,7 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
                     var bet = msg.substring(space + 2); 
+                    var winnings;
                     
                     //Check Users TOKEn count...
                     
@@ -505,8 +506,7 @@
                          else if (space === -1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
-                            Window.setTimeout(spinSlots(), 3000); 
-                            API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots())
+                            API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots());
                             
                             //Determine Winnings
                             if (pickOne == slotArray[0] && pickTwo == slotArray[0] && pickThree == slotArray[0]) {
