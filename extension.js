@@ -515,7 +515,7 @@
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
                             setTimeout(extend, 3000);
-                            API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots());
+                            API.sendChat("/me " + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinArray[0] + spinArray[1] + spinArray[2]);
                             setTimeout(extend, 3000);
                             
                             //Determine Winnings
