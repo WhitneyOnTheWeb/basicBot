@@ -468,10 +468,7 @@
             return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
         }
         
-        function spinOutcome(chat, cmd) {
-            var msg = chat.message; 
-			var space = msg.indexOf(' '); 
-            var bet = msg.substring(space + 2); 
+        function spinOutcome(bet) {
             var winnings;
             var spinArray = [spinSlots(),
                              spinSlots(),
@@ -547,7 +544,7 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
                     var bet = msg.substring(space + 2); 
-                    var outcome = spinOutcome();
+                    var outcome = spinOutcome(bet);
                     //Check Users TOKEn count...
                     
                     //Display Slots
