@@ -562,17 +562,23 @@
         }
         
         function slotWinnings(winnings, user) {
-            var fs = require('fs');
-            var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
             var totalTokens;        
-            for (i=0; i < tokens.length; i++) {
-                 if (tokens[i].username == user) {
-                    tokens[i].number = tokens[i].number + winnings;
-                    totalTokens = tokens[i].number;
+            $.ajax({
+                     type: 'GET',
+                     dataType: 'json',
+                     url: 'C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json',
+                     data: {get_param: "value"},
+                     success: function (data) {
+                         var tokens = JSON.parse('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json'); 
+                         for (i=0; i < tokens.length; i++) {
+                            if (tokens[i].username == user) {
+                            tokens[i].number = tokens[i].number + winnings;
+                            totalTokens = tokens[i].number;
+                         }
+                     }
+                        
                  }
-            }
-            
-            fs.writeFile('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json', JSON.stringify(tokens));
+             });
             return totalTokens;
         }
 
