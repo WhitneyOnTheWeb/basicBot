@@ -499,7 +499,11 @@
             var outcome1 = spinSlots(); 
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
+            if (bet == null) {
+                bet = 1;
+            }
             
+            //Determine Winnings
             if (outcome1[0] == outcome2[0] && outcome1[0] == outcome3[0]) {
                 winnings = Math.round(bet * outcome1[1]);
             }
@@ -515,44 +519,6 @@
             else{
                 winnings = 0;  
             }
-                             
-             //Determine Winnings
-              /*if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
-                 winnings = Math.round(bet * 1.5);  
-              }      
-              else if (spinArray[0] == ":tangerine:" && spinArray[1] == ":tangerine:" && spinArray[2] == ":tangerine:") {
-                 winnings = bet * 2;  
-              }
-              else if (spinArray[0] == ":strawberry:" && spinArray[1] == ":strawberry:" && spinArray[2] == ":strawberry:") {
-                 winnings = Math.round(bet * 2.5);  
-              }
-              else if (spinArray[0] == ":pineapple:" && spinArray[1] == ":pineapple:" && spinArray[2] == ":pineapple:") {
-                 winnings = bet * 3;  
-              }
-              else if (spinArray[0] == ":apple:" && spinArray[1] == ":apple:" && spinArray[2] == ":apple:") {
-                 winnings = Math.round(bet * 3.5);  
-              }
-              else if (spinArray[0] == ":grapes:" && spinArray[1] == ":grapes:" && spinArray[2] == ":grapes:") {
-                 winnings = bet * 4;   
-              }
-              else if (spinArray[0] == ":watermelon:" && spinArray[1] == ":watermelon:" && spinArray[2] == ":watermelon:") {
-                 winnings = Math.round(bet * 4.5);  
-              }
-              else if (spinArray[0] == ":cherries:" && spinArray[1] == ":cherries:" && spinArray[2] == ":cherries:") {
-                 winnings = bet * 5;  
-              }
-              else if (spinArray[0] == ":green_heart:" && spinArray[1] == ":green_heart:" && spinArray[2] == ":green_heart:") {
-                 winnings = Math.round(bet * 5.5);   
-              }
-              else if (spinArray[0] == ":bell:" && spinArray[1] == ":bell:" && spinArray[2] == ":bell:") {
-                 winnings = bet * 6;   
-              }
-              else if (spinArray[0] == ":gem:" && spinArray[1] == ":gem:" && spinArray[2] == ":gem:") {
-                 winnings = Math.round(bet * 6.5);  
-              }
-              else if (spinArray[0] == ":slot_seven:" && spinArray[1] == ":slot_seven:" && spinArray[2] == ":slot_seven:") {
-                 winnings = bet * 7;   
-              }*/
                             
              return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
@@ -568,7 +534,7 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
-                    var bet = msg.substring(space + 1); 
+                    var bet = msg.substring(space + 1);                     
                     var outcome = spinOutcome(bet);
                     //Check Users TOKEn count...
                     
