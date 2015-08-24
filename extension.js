@@ -543,7 +543,7 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
-                    var bet = msg.substring(space + 2); 
+                    var bet = msg.substring(space + 1); 
                     var outcome = spinOutcome(bet);
                     //Check Users TOKEn count...
                     
