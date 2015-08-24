@@ -516,6 +516,7 @@
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
                             setTimeout("hi", 3000);
                             API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots());
+                            setTimeout("hi", 3000);
                             
                             //Determine Winnings
                             if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
@@ -557,6 +558,7 @@
                             else{
                                 winnings = 0;  
                             }
+                            setTimeout("hi", 3000);
                             
                             //Display Outcome
                             if (winnings == 0) {
