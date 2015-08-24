@@ -527,7 +527,7 @@
              }
                     
              if (checkUser == false) {
-                  tokens.push(username: user, number: 0);
+                  //tokens.push(username: user, number: 0);
                   tokensPreBet = 0;
              } 
              
