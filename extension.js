@@ -567,7 +567,7 @@
                          
                          //Display Outcome
                          if (outcome[3] == 0) {
-                             setTimeout(API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is more addictive than marijuana... want to try again?"), 1000); 
+                             setTimeout(API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?"), 1000); 
                          }
                          else if (outcome[3] == (bet * 7)) {
                              setTimeout(API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!"), 1000);   
