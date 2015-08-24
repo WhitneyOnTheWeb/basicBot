@@ -45,8 +45,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     API.sendChat("/me [@" + chat.un + "] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
-                    API.sendChat("/me Bacon!");
-                    return;
+                    setTimeout(API.sendChat("/me Bacon!"));
                 }
             }
         };
