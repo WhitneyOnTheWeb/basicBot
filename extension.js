@@ -462,7 +462,7 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
-                    var bet = msg.substring(parseInt(space + 2)); 
+                    var bet = msg.substring(space + 2); 
                     
                     //Check Users TOKEn count...
                     
