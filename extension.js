@@ -557,13 +557,13 @@
                              } 
                          else if (space === -1) { 
                             //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: " + slotResult(outcome));
+                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             slotResult(outcome);
                             //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: " +  + slotResult(outcome));
+                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             slotResult(outcome);
                             //API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2]);
                          } 
