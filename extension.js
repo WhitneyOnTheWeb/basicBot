@@ -612,7 +612,7 @@
                     }
                     else {
                         var outcome = spinOutcome(bet);
-                        updatedTokens = slotWinnings(outcome[3], player);
+                        //updatedTokens = slotWinnings(outcome[3], player);
                     }
                     
                     //Display Slots
@@ -632,13 +632,13 @@
                          
                      //Display Outcome
                     if (outcome[3] == 0) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You now have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000); 
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
                     }
                     else if (outcome[3] == (bet * 7)) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- You now have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 7000);   
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- Don't spend them all in one place!")}, 7000);   
                     }
                     else {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! You now have " + updatedTokens + " TOKEns. How about another spin?")}, 7000);
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
                     }
                 } 
             } 
