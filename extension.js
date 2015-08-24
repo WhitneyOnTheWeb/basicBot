@@ -469,6 +469,10 @@
             return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
         }
         
+        function slotOutput() {
+            
+        }
+        
         // !test
         bot.commands.testCommand = {
             command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
@@ -496,6 +500,9 @@
 					var space = msg.indexOf(' '); 
                     var bet = msg.substring(space + 2); 
                     var winnings;
+                    var spinArray = [spinSlots(),
+                                     spinSlots(),
+                                     spinSlots()];
                     
                     //Check Users TOKEn count...
                     
@@ -506,43 +513,44 @@
                          else if (space === -1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
+                            setTimeout("hi", 3000);
                             API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + spinSlots() + spinSlots() + spinSlots());
                             
                             //Determine Winnings
-                            if (pickOne == slotArray[0] && pickTwo == slotArray[0] && pickThree == slotArray[0]) {
+                            if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
                                 winnings = Math.round(bet * 1.5);  
                             }      
-                            else if (pickOne == slotArray[1] && pickTwo == slotArray[1] && pickThree == slotArray[1]) {
+                            else if (spinArray[0] == ":tangerine:" && spinArray[1] == ":tangerine:" && spinArray[2] == ":tangerine:") {
                                 winnings = bet * 2;  
                             }
-                            else if (pickOne == slotArray[2] && pickTwo == slotArray[2] && pickThree == slotArray[2]) {
+                            else if (spinArray[0] == ":strawberry:" && spinArray[1] == ":strawberry:" && spinArray[2] == ":strawberry:") {
                                 winnings = Math.round(bet * 2.5);  
                             }
-                            else if (pickOne == slotArray[3] && pickTwo == slotArray[3] && pickThree == slotArray[3]) {
+                            else if (spinArray[0] == ":pineapple:" && spinArray[1] == ":pineapple:" && spinArray[2] == ":pineapple:") {
                                 winnings = bet * 3;  
                             }
-                            else if (pickOne == slotArray[4] && pickTwo == slotArray[4] && pickThree == slotArray[4]) {
+                            else if (spinArray[0] == ":apple:" && spinArray[1] == ":apple:" && spinArray[2] == ":apple:") {
                                 winnings = Math.round(bet * 3.5);  
                             }
-                            else if (pickOne == slotArray[5] && pickTwo == slotArray[5] && pickThree == slotArray[5]) {
+                            else if (spinArray[0] == ":grapes:" && spinArray[1] == ":grapes:" && spinArray[2] == ":grapes:") {
                                 winnings = bet * 4;   
                             }
-                            else if (pickOne == slotArray[6] && pickTwo == slotArray[6] && pickThree == slotArray[6]) {
+                            else if (spinArray[0] == ":watermelon:" && spinArray[1] == ":watermelon:" && spinArray[2] == ":watermelon:") {
                                 winnings = Math.round(bet * 4.5);  
                             }
-                            else if (pickOne == slotArray[7] && pickTwo == slotArray[7] && pickThree == slotArray[7]) {
+                            else if (spinArray[0] == ":cherries:" && spinArray[1] == ":cherries:" && spinArray[2] == ":cherries:") {
                                 winnings = bet * 5;  
                             }
-                            else if (pickOne == slotArray[8] && pickTwo == slotArray[8] && pickThree == slotArray[8]) {
+                            else if (spinArray[0] == ":green_heart:" && spinArray[1] == ":green_heart:" && spinArray[2] == ":green_heart:") {
                                 winnings = Math.round(bet * 5.5);   
                             }
-                            else if (pickOne == slotArray[9] && pickTwo == slotArray[8] && pickThree == slotArray[9]) {
+                            else if (spinArray[0] == ":bell:" && spinArray[1] == ":bell:" && spinArray[2] == ":bell:") {
                                 winnings = bet * 6;   
                             }
-                            else if (pickOne == slotArray[10] && pickTwo == slotArray[10] && pickThree == slotArray[10]) {
+                            else if (spinArray[0] == ":gem:" && spinArray[1] == ":gem:" && spinArray[2] == ":gem:") {
                                 winnings = Math.round(bet * 6.5);  
                             }
-                            else if (pickOne == slotArray[11] && pickTwo == slotArray[11] && pickThree == slotArray[11]) {
+                            else if (spinArray[0] == ":slot_seven:" && spinArray[1] == ":slot_seven:" && spinArray[2] == ":slot_seven:") {
                                 winnings = bet * 7;   
                             }
                             else{
