@@ -500,7 +500,7 @@
                      var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
                     
                     //Display Slots
-                         if (bet === false || bet <= 0) { 
+                         if (bet <= 0) { 
                                  return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
                              } 
                          else if (space === -1) { 
