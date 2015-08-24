@@ -451,19 +451,6 @@
             }
         };
         
-        /*':lemon:',  1.5
-          ':tangerine:', 
-          ':strawberry:', 
-          ':pineapple:', 
-          ':apple:', 
-          ':grapes:', 
-          ':watermelon:', 
-          ':cherries:', 
-          ':green_heart:', 
-          ':bell:', 
-          ':gem:', 
-          ':slot_seven:'*/
-        
         function spinSlots() {
             var slotArray = [':lemon:',
                              ':tangerine:', 
@@ -488,8 +475,7 @@
                              5.5, 
                              6, 
                              6.5, 
-                             7];
-                             
+                             7];    
             var rand =  Math.floor(Math.random() * (slotArray.length));                
             return [slotArray[rand], slotValue[rand]]; 
         }
@@ -500,6 +486,7 @@
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
             
+            //Fix bet if blank
             if (bet == null || bet == "" || bet == " " || bet == "!slot") {
                 bet = 1;
             }
@@ -535,58 +522,42 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
-                    var bet = msg.substring(space + 1);                     
+                    var bet = msg.substring(space + 1);
+                    bet = Math.round(bet);                     
                     var outcome = spinOutcome(bet);
                     //Check Users TOKEn count...
                     
                     //Display Slots
-                         if (bet <= 0) { 
-                                 return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
-                             } 
-                         else if (space === -1) { 
-                            //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
-                            setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
-                         } 
-                         else if (bet >= 1) { 
-                            //Start Slots
-                            API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
-                            setTimeout(function() {API.sendChat("/me It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
-                         } 
-                         else {
-                            return false; 
-                         }
+                    if (bet <= 0) { 
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
+                    } 
+                    else if (space === -1 || bet == 1) { 
+                        //Start Slots
+                        API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
+                    } 
+                    else if (bet > 1) { 
+                        //Start Slots
+                        API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
+                        setTimeout(function() {API.sendChat("/me It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
+                    } 
+                    else {
+                        return false; 
+                    }
                          
-                         //Display Outcome
-                         if (outcome[3] == 0) {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
-                         }
-                         else if (outcome[3] == (bet * 7)) {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!")}, 7000);   
-                         }
-                         else {
-                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
-                         }
-                     } 
+                     //Display Outcome
+                    if (outcome[3] == 0) {
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
+                    }
+                    else if (outcome[3] == (bet * 7)) {
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!")}, 7000);   
+                    }
+                    else {
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
+                    }
+                } 
             } 
         }; 
-        
-        // !test
-        bot.commands.testCommand = {
-            command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {                     
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    var outcome1 = spinSlots();
-                    var outcome2 = spinSlots();
-                    var outcome3 = spinSlots();
-                    API.sendChat("/me " + outcome1[0] + " " + outcome2[0] + " " + outcome3[0]);
-                }
-            }
-        };
         
         // !spirit
         bot.commands.spiritCommand = {
