@@ -18,6 +18,7 @@
 
         /*
          Extend the bot here, either by calling another function or here directly.
+         
          Model code for a bot command:
          bot.commands.commandCommand = {
          command: 'cmd',
@@ -451,38 +452,37 @@
             }
         };
         
+        function spinSlots() {
+            var slotArray = [':lemon:',
+                             ':tangerine:', 
+                             ':strawberry:', 
+                             ':pineapple:', 
+                             ':apple:', 
+                             ':grapes:', 
+                             ':watermelon:', 
+                             ':cherries:', 
+                             ':green_heart:', 
+                             ':bell:', 
+                             ':gem:', 
+                             ':slots_seven:'];
+
+            return slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+        }
+        
         // !test
         bot.commands.testCommand = {
             command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {
-                var slotArray = [':lemon:',
-                                 ':tangerine:',
-                                 ':strawberry:', 
-                                 ':pineapple:', 
-                                 ':apple:', 
-                                 ':grapes:', 
-                                 ':watermelon:', 
-                                 ':cherries:', 
-                                 ':green_heart:', 
-                                 ':bell:', 
-                                 ':gem:', 
-                                 ':slots_seven:'];
-                     
-                //Pick Three Random Symbols from valid symbols
-                var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                     
+            functionality: function (chat, cmd) {                     
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat("/me " + pickOne + " " + pickTwo + " " + pickThree);
+                    API.sendChat("/me " + spinSlots() + " " + spinSlots() + " " + spinSlots());
                 }
             }
         };
-        
+       
         //slots
         bot.commands.slotsCommand = { 
             command: ['slots', 'slot'],  //The command to be called. With the standard command literal this would be: !slots
@@ -497,39 +497,6 @@
                     var bet = msg.substring(space + 2); 
                     
                     //Check Users TOKEn count...
-                    
-                    //Assign value to each valid symbol
-                        /* :tangerine:   2x
-                           :strawberry:  2.5x
-                           :pineapple:   3x
-                           :lemon:       1.5x
-                           :cherries:    5x
-                           :apple:       3.5x
-                           :grapes:      4x
-                           :watermelon:  4.5x
-                           :bell:        6x
-                           :green_heart: 5.5x
-                           :gem:         6.5x
-                           :slots_seven: 7x
-                         */
-                     var slotArray = [':lemon:',
-                                      ':tangerine:', 
-                                      ':strawberry:', 
-                                      ':pineapple:', 
-                                      ':apple:', 
-                                      ':grapes:', 
-                                      ':watermelon:', 
-                                      ':cherries:', 
-                                      ':green_heart:', 
-                                      ':bell:', 
-                                      ':gem:', 
-                                      ':slots_seven:'];
-                      var winnings;
-                     
-                     //Pick Three Random Symbols from valid symbols
-                     var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                     var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                     var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
                     
                     //Display Slots
                          if (bet <= 0) { 
