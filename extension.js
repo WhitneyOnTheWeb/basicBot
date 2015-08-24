@@ -451,16 +451,13 @@
             }
         };
         
-                // !pizza
+        // !test
         bot.commands.testCommand = {
             command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    var slotArray = [':lemon:',
+                var slotArray = [':lemon:',
                                       ':tangerine:', 
                                       ':strawberry:', 
                                       ':pineapple:', 
@@ -477,8 +474,10 @@
                      var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
                      var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
                      var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
-                    //API.sendChat(subChat(basicBot.chat.pizza, {name: chat.un}));
-                    //API.sendChat("/me http://33.media.tumblr.com/tumblr_lfrui39J1Y1qds45xo1_500.gif");
+                     
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
                     API.sendChat("/me " + pickOne + pickTwo + pickThree);
                 }
             }
