@@ -451,6 +451,19 @@
             }
         };
         
+        /*':lemon:',  1.5
+          ':tangerine:', 
+          ':strawberry:', 
+          ':pineapple:', 
+          ':apple:', 
+          ':grapes:', 
+          ':watermelon:', 
+          ':cherries:', 
+          ':green_heart:', 
+          ':bell:', 
+          ':gem:', 
+          ':slot_seven:'*/
+        
         function spinSlots() {
             var slotArray = [':lemon:',
                              ':tangerine:', 
@@ -464,18 +477,47 @@
                              ':bell:', 
                              ':gem:', 
                              ':slot_seven:'];
-
-            return slotArray[Math.floor(Math.random() * (slotArray.length))]; 
+            var slotValue = [1.5, 
+                             2, 
+                             2.5, 
+                             3, 
+                             3.5, 
+                             4, 
+                             4.5, 
+                             5, 
+                             5.5, 
+                             6, 
+                             6.5, 
+                             7];
+                             
+            var rand =  Math.floor(Math.random() * (slotArray.length));                
+            return [slotArray[rand], slotValue[rand]]; 
         }
         
         function spinOutcome(bet) {
             var winnings;
-            var spinArray = [spinSlots(),
-                             spinSlots(),
-                             spinSlots()];        
+            var outcome1 = spinSlots(); 
+            var outcome2 = spinSlots(); 
+            var outcome3 = spinSlots();   
+            
+            if (outcome1[0] == outcome2[0] && outcome1[0] == outcome3[0]) {
+                winnings = Math.round(bet * outcome1[1]);
+            }
+            else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
+                winnings = Math.round(bet * (.3 * outcome1[1]));
+            }
+            else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
+                winnings = Math.round(bet * (.35 * outcome1[1]));
+            }
+            else if (outcome2[0] == outcome3[0] && outcome1[0] != outcome1[0]) {
+                winnings = Math.round(bet * (.25 * outcome2[1]));
+            }
+            else{
+                winnings = 0;  
+            }
                              
              //Determine Winnings
-              if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
+              /*if (spinArray[0] == ":lemon:" && spinArray[1] == ":lemon:" && spinArray[2] == ":lemon:") {
                  winnings = Math.round(bet * 1.5);  
               }      
               else if (spinArray[0] == ":tangerine:" && spinArray[1] == ":tangerine:" && spinArray[2] == ":tangerine:") {
@@ -510,12 +552,9 @@
               }
               else if (spinArray[0] == ":slot_seven:" && spinArray[1] == ":slot_seven:" && spinArray[2] == ":slot_seven:") {
                  winnings = bet * 7;   
-              }
-              else{
-                 winnings = 0;  
-              }
+              }*/
                             
-             return [spinArray[0], spinArray[1], spinArray[2], winnings];                      
+             return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
        
         //slots
@@ -574,7 +613,10 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat("/me " + spinSlots() + " " + spinSlots() + " " + spinSlots());
+                    var outcome1 = spinSlots();
+                    var outcome2 = spinSlots();
+                    var outcome3 = spinSlots();
+                    API.sendChat("/me " + outcome1[0] + " " + outcome2[0] + " " + outcome3[0]);
                 }
             }
         };
