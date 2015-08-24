@@ -552,7 +552,7 @@
              return tokensPreBet, tokensPostBet, validBet;
         }
         
-        function slotWinnings(winnings) {
+        function slotWinnings(winnings, user) {
             var fs = require('fs');
             var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
             var totalTokens;        
@@ -593,7 +593,7 @@
                     }
                     else {
                         var outcome = spinOutcome(bet);
-                        updatedTokens = slotWinnings(outcome[3]);
+                        updatedTokens = slotWinnings(outcome[3], player);
                     }
                     
                     //Display Slots
