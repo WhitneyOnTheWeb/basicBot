@@ -451,6 +451,120 @@
             }
         };
         
+        //slots
+        bot.commands.slotsCommand = { 
+            command: ['slots', 'slot'],  //The command to be called. With the standard command literal this would be: !slots
+            rank: 'user', 
+            type: 'startsWith',  
+            functionality: function (chat, cmd) { 
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0); 
+                if (!bot.commands.executable(this.rank, chat)) return void (0); 
+                else { 
+                    var msg = chat.message; 
+					var space = msg.indexOf(' '); 
+                    var bet = msg.substring(parseInt(space + 2)); 
+                    
+                    //Check Users TOKEn count...
+                    
+                    //Assign value to each valid symbol
+                        /* :tangerine:   2x
+                           :strawberry:  2.5x
+                           :pineapple:   3x
+                           :lemon:       1.5x
+                           :cherries:    5x
+                           :apple:       3.5x
+                           :grapes:      4x
+                           :watermelon:  4.5x
+                           :bell:        6x
+                           :green_heart: 5.5x
+                           :gem:         6.5x
+                           :slots_seven: 7x
+                         */
+                     var slotArray = [':lemon:',
+                                      ':tangerine:', 
+                                      ':strawberry:', 
+                                      ':pineapple:', 
+                                      ':apple:', 
+                                      ':grapes:', 
+                                      ':watermelon:', 
+                                      ':cherries:', 
+                                      ':green_heart:', 
+                                      ':bell:', 
+                                      ':gem:', 
+                                      ':slots_seven:'];
+                      var winnings;
+                     
+                     //Pick Three Random Symbols from valid symbols
+                     var pickOne = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                     var pickTwo = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                     var pickThree = slotArray[Math.floor(Math.Random() * (slotArray.length - 1))]; 
+                    
+                    //Display Slots
+                         if (bet === false || bet <= 0) { 
+                                 return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
+                             } 
+                         else if (space === -1) { 
+                            //Start Slots
+                            API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin...");
+                            API.sendChat("/me @" + chat.un + " watches the ChemSlots spin... it finally stops on: " + pickOne + pickTwo + pickThree); 
+                            
+                            //Determine Winnings
+                            if (pickOne == slotArray[0] && pickTwo == slotArray[0] && pickThree == slotArray[0]) {
+                                winnings = Math.round(bet * 1.5);  
+                            }      
+                            else if (pickOne == slotArray[1] && pickTwo == slotArray[1] && pickThree == slotArray[1]) {
+                                winnings = bet * 2;  
+                            }
+                            else if (pickOne == slotArray[2] && pickTwo == slotArray[2] && pickThree == slotArray[2]) {
+                                winnings = Math.round(bet * 2.5);  
+                            }
+                            else if (pickOne == slotArray[3] && pickTwo == slotArray[3] && pickThree == slotArray[3]) {
+                                winnings = bet * 3;  
+                            }
+                            else if (pickOne == slotArray[4] && pickTwo == slotArray[4] && pickThree == slotArray[4]) {
+                                winnings = Math.round(bet * 3.5);  
+                            }
+                            else if (pickOne == slotArray[5] && pickTwo == slotArray[5] && pickThree == slotArray[5]) {
+                                winnings = bet * 4;   
+                            }
+                            else if (pickOne == slotArray[6] && pickTwo == slotArray[6] && pickThree == slotArray[6]) {
+                                winnings = Math.round(bet * 4.5);  
+                            }
+                            else if (pickOne == slotArray[7] && pickTwo == slotArray[7] && pickThree == slotArray[7]) {
+                                winnings = bet * 5;  
+                            }
+                            else if (pickOne == slotArray[8] && pickTwo == slotArray[8] && pickThree == slotArray[8]) {
+                                winnings = Math.round(bet * 5.5);   
+                            }
+                            else if (pickOne == slotArray[9] && pickTwo == slotArray[8] && pickThree == slotArray[9]) {
+                                winnings = bet * 6;   
+                            }
+                            else if (pickOne == slotArray[10] && pickTwo == slotArray[10] && pickThree == slotArray[10]) {
+                                winnings = Math.round(bet * 6.5);  
+                            }
+                            else if (pickOne == slotArray[11] && pickTwo == slotArray[11] && pickThree == slotArray[11]) {
+                                winnings = bet * 7;   
+                            }
+                            else{
+                                winnings = 0;  
+                            }
+                            
+                            //Display Outcome
+                            if (winnings == 0) {
+                                API.sendChat("/me @" + chat.un + ", tough luck... you didn't win anything. I hear gambling is more addictive than marijuana... want to try again?"); 
+                            }
+                            else if (winnings == (bet * 7)) {
+                                API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + winnings + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!");   
+                            }
+                            else {
+                                API.sendChat("/me @" + chat.un + ", excellent spin! You've won " + winnings + " TOKEns! How about another spin?"); 
+                            }
+                            return false; 
+                         } 
+                     } 
+            } 
+        }; 
+        
         // !spirit
         bot.commands.spiritCommand = {
             command: 'spirit',  //The command to be called. With the standard command literal this would be: !spirit
