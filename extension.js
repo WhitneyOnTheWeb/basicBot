@@ -517,20 +517,6 @@
                             
              return [spinArray[0], spinArray[1], spinArray[2], winnings];                      
         }
-        
-        // !test
-        bot.commands.testCommand = {
-            command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
-            rank: 'user', //Minimum user permission to use the command
-            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
-            functionality: function (chat, cmd) {                     
-                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
-                if (!bot.commands.executable(this.rank, chat)) return void (0);
-                else {
-                    API.sendChat("/me " + spinSlots() + " " + spinSlots() + " " + spinSlots());
-                }
-            }
-        };
        
         //slots
         bot.commands.slotsCommand = { 
@@ -578,6 +564,20 @@
                      } 
             } 
         }; 
+        
+        // !test
+        bot.commands.testCommand = {
+            command: 'test',  //The command to be called. With the standard command literal this would be: !pizza
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {                     
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me " + spinSlots() + " " + spinSlots() + " " + spinSlots());
+                }
+            }
+        };
         
         // !spirit
         bot.commands.spiritCommand = {
@@ -638,8 +638,8 @@
         maximumLocktime: 10,
         cycleGuard: true,
         maximumCycletime: 10,
-        voteSkip: false,
-        voteSkipLimit: 10,
+        voteSkip: true,
+        voteSkipLimit: 3,
         historySkip: false,
         timeGuard: true,
         maximumSongLength: 20,
@@ -670,10 +670,10 @@
         fbLink: null,
         youtubeLink: null,
         website: "http://rawrmedusa.wix.com/chemical-cowboys",
-        intervalMessages: [
-                           "Nice tracks, keep em' coming!",
+        intervalMessages: ["Nice tracks, keep em' coming!",
                            "I'm really getting into the music!",
                            "Take a toke, pass it around and play some more groovy toons!",
+                           "!passit @Chembot",
                            "Once you replace negative thoughts with positive ones, you'll start having positive results... like my drug test.",
                            "My doctor tells me I should start slowing it down - but there are more old drunks than there are old doctors so let's all have another round.",
                            "I believe that all roads lead to the same place - and that is wherever all roads lead to.",
@@ -685,6 +685,7 @@
                            "Switch it up! Musical chairs for musical songs!",
                            "Music is the strongest form of magic.",
                            "Anyone got a light?",
+                           "!passit @Chembot",
                            "Music in the soul can be heard by the universe.",
                            "You are the music while the music lasts.",
                            "Music is my religion.",
@@ -696,8 +697,9 @@
                            "!passit @Chembot",
                            "Man, I love you guys...",
                            "/me grooves to the music",
-                           "Troubling times we're in... troubling times."
-                          ],
+                           "Troubling times we're in... troubling times.",
+                           "Not on the rug, maaaaan!",
+                           "The rug really ties the room together."],
         messageInterval: 6,
         songstats: true,
         commandLiteral: "!",
