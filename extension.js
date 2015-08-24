@@ -47,6 +47,7 @@
                     //API.sendChat(subChat(basicBot.chat.bacon, {name: chat.un}));
                     //API.sendChat("/me http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
                     API.sendChat("/me [@" + chat.un + "] http://big.assets.huffingtonpost.com/slide_297900_2459978_free.gif");
+                    API.sendChat("/me Bacon!");
                 }
             }
         };
