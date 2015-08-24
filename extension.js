@@ -487,7 +487,7 @@
             var outcome3 = spinSlots();   
             
             //Fix bet if blank
-            if (bet == null || bet == "" || bet == " " || bet == "!slot") {
+            if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots") {
                 bet = 1;
             }
 
@@ -510,6 +510,62 @@
                             
              return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
+        
+        function checkTokens(bet, user) {
+             var tokensPreBet;
+             var tokensPostBet;
+             var checkUser = false;
+             var validBet = true;
+             var fs = require('fs');
+             var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
+                    
+             for (i=0; i < tokens.length; i++) {
+                 if (tokens[i].username == user) {
+                     checkUser = true;
+                     tokensPreBet = tokens[i].number;
+                  }
+             }
+                    
+             if (checkUser == false) {
+                  tokens.push("username": user, "number": 0);
+                  tokensPreBet = 0;
+             } 
+             
+             if (bet > tokensPreBet) {
+                  validBet = false;
+                  tokensPostBet = tokensPreBet;
+             }
+             else if (tokensPostBet < 0) {
+                  validBet = false;
+                  tokensPostBet = tokensPreBet;
+             }
+             else {
+                  tokensPostBet = tokensPreBet - bet;
+             }
+
+             for (i=0; i < tokens.length; i++) {
+                  if (tokens[i].username == user) {
+                     tokens[i].number = tokensPostBet;
+                  }
+             }
+             fs.writeFile('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json', JSON.stringify(tokens));
+             return tokensPreBet, tokensPostBet, validBet;
+        }
+        
+        function slotWinnings(winnings) {
+            var fs = require('fs');
+            var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
+            var totalTokens;        
+            for (i=0; i < tokens.length; i++) {
+                 if (tokens[i].username == user) {
+                    tokens[i].number = tokens[i].number + winnings;
+                    totalTokens = tokens[i].number;
+                 }
+            }
+            
+            fs.writeFile('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json', JSON.stringify(tokens));
+            return totalTokens;
+        }
 
         //slots
         bot.commands.slotsCommand = { 
@@ -521,17 +577,27 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0); 
                 else { 
                     var msg = chat.message; 
-					var space = msg.indexOf(' '); 
+					var space = msg.indexOf(' ');
+                    var player = chat.un; 
                     var bet = msg.substring(space + 1);
-                    bet = Math.round(bet);                     
-                    var outcome = spinOutcome(bet);
+                    bet = Math.round(bet);      
+                    var updatedTokens;
+                                   
                     //Check Users TOKEn count...
+                    var playerTokens = checkTokens(bet, player);
+                    if (bet > playerTokens[0]) { 
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
+                    } 
+                    else if (bet == 0) { 
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
+                    }
+                    else {
+                        var outcome = spinOutcome(bet);
+                        updatedTokens = slotWinnings(outcome[3]);
+                    }
                     
                     //Display Slots
-                    if (bet <= 0) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
-                    } 
-                    else if (space === -1 || bet == 1) { 
+                    if (space === -1 || bet == 1) { 
                         //Start Slots
                         API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin.");
                         setTimeout(function() {API.sendChat("/me  It finally stops on: " + outcome[0] + outcome[1] + outcome[2])}, 5000);
@@ -547,13 +613,13 @@
                          
                      //Display Outcome
                     if (outcome[3] == 0) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You now have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000); 
                     }
                     else if (outcome[3] == (bet * 7)) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- don't spend them all in one place!")}, 7000);   
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- You now have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 7000);   
                     }
                     else {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! You now have " + updatedTokens + " TOKEns. How about another spin?")}, 7000);
                     }
                 } 
             } 
