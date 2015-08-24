@@ -516,7 +516,7 @@
              var tokensPostBet;
              var checkUser = false;
              var validBet = true;
-             var fs = require('fs');
+             fs = require('fs');
              var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
                     
              for (i=0; i < tokens.length; i++) {
