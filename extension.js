@@ -516,15 +516,25 @@
              var tokensPostBet;
              var checkUser = false;
              var validBet = true;
-             fs = require('fs');
-             var tokens = JSON.parse(fs.readFileSync('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json').toString());
-                    
-             for (i=0; i < tokens.length; i++) {
-                 if (tokens[i].username == user) {
-                     checkUser = true;
-                     tokensPreBet = tokens[i].number;
-                  }
-             }
+             var tokens;
+             
+             $.ajax({
+                     type: 'GET',
+                     dataType: 'json',
+                     url: 'C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json',
+                     data: {get_param: "value"},
+                     success: function (data) {
+                         tokens = JSON.parse('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json'); 
+                         for (i=0; i < tokens.length; i++) {
+                            if (tokens[i].username == user) {
+                                checkUser = true;
+                                tokensPreBet = tokens[i].number;
+                            }
+                        }
+                        
+                    }
+             });
+             
                     
              if (checkUser == false) {
                   //tokens.push(username: user, number: 0);
@@ -548,7 +558,6 @@
                      tokens[i].number = tokensPostBet;
                   }
              }
-             fs.writeFile('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json', JSON.stringify(tokens));
              return tokensPreBet, tokensPostBet, validBet;
         }
         
@@ -584,7 +593,11 @@
                     var updatedTokens;
                                    
                     //Check Users TOKEn count...
-                    var playerTokens = checkTokens(bet, player);
+                    var playerTokens; // = checkTokens(bet, player);
+                    
+                    //Remove this when done testing!!!!!!
+                    playerTokens = bet;
+                    
                     if (bet > playerTokens[0]) { 
                         return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
                     } 
