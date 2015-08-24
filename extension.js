@@ -494,24 +494,28 @@
             return [slotArray[rand], slotValue[rand]]; 
         }
         
-        function spinOutcome(checkBet) {
+        function spinOutcome(bet) {
             var winnings;
             var outcome1 = spinSlots(); 
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
+            
+            if (bet == null || bet == "" || bet == " ") {
+                bet = 1;
+            }
 
             //Determine Winnings
             if (outcome1[0] == outcome2[0] && outcome1[0] == outcome3[0]) {
-                winnings = Math.round(checkBet * outcome1[1]);
+                winnings = Math.round(bet * outcome1[1]);
             }
             else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
-                winnings = Math.round(checkBet * (.3 * outcome1[1]));
+                winnings = Math.round(bet * (.3 * outcome1[1]));
             }
             else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
-                winnings = Math.round(checkBet * (.35 * outcome1[1]));
+                winnings = Math.round(bet * (.35 * outcome1[1]));
             }
             else if (outcome2[0] == outcome3[0] && outcome2[0] != outcome1[0]) {
-                winnings = Math.round(checkBet * (.25 * outcome2[1]));
+                winnings = Math.round(bet * (.25 * outcome2[1]));
             }
             else{
                 winnings = 0;  
@@ -519,14 +523,7 @@
                             
              return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
-        
-        function checkBet(bet) {
-            if (bet == null || bet == "" || bet == " ") {
-                bet = 1;
-            }
-            return bet;
-        }
-       
+
         //slots
         bot.commands.slotsCommand = { 
             command: ['slots', 'slot'],  //The command to be called. With the standard command literal this would be: !slots
@@ -538,23 +535,23 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' '); 
-                    var bet = msg.substring(space + 1);
-                    var checkBet = checkBet(bet);
+                    var bet = msg.substring(space + 1);                     
+                    var outcome = spinOutcome(bet);
                     //Check Users TOKEn count...
-                    if (checkBet >= 1) {                     
-                        var outcome = spinOutcome(checkBet);
-                        
-                        if (space === -1) { 
+                    
+                    //Display Slots
+                         if (bet <= 0) { 
+                                 return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
+                             } 
+                         else if (space === -1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets one TOKEn at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             setTimeout(function() {API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2])}, 1000);
-                            setTimeout(function() {API.sendChat("\"" + bet + "\"")}, 1000);
                          } 
                          else if (bet >= 1) { 
                             //Start Slots
                             API.sendChat("/me @" + chat.un + " bets " + bet + " TOKEns at the ChemSlots, and pulls the handle to spin... " + chat.un + " watches the ChemSlots spin. It finally stops on: ");
                             setTimeout(function() {API.sendChat("/me " + outcome[0] + outcome[1] + outcome[2])}, 1000);
-                            setTimeout(function() {API.sendChat("\"" + bet + "\"")}, 1000);
                          } 
                          else {
                             return false; 
@@ -570,12 +567,7 @@
                          else {
                              setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 2000);
                          }
-                    }
-                    else if (checkBet <= 0) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet " + checkBet + " TOKEns at the ChemSlots, but doesn't have enough! How embarassing."); 
-                    } 
-                        
-                } 
+                     } 
             } 
         }; 
         
