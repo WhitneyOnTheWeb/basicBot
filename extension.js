@@ -724,7 +724,7 @@
         afkpositionCheck: 15,
         afkRankCheck: "ambassador",
         motdEnabled: false,
-        motdInterval: 25,
+        motdInterval: 6,
         motd: "Welcome to Chemical Cowboys - play what you want!",
         filterChat: false,
         etaRestriction: false,
