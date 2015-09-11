@@ -579,7 +579,7 @@
                     var updatedTokens;
                     var bet;
                     
-                    if (msg.substring(space + 1) == "!slot" || msg.substring(space + 1) == "!slots" || isNaN(bet)) {
+                    if (isNaN(bet)) {
                         bet = 1;
                     }
                     else {
