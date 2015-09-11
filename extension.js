@@ -488,7 +488,7 @@
             
             //Fix bet if blank
             if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots") {
-                bet = 1;
+                bet = parseInt("1");
             }
 
             //Determine Winnings
@@ -507,79 +507,46 @@
             else{
                 winnings = 0;  
             }
-                            
+                        
              return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
         
         function checkTokens(bet, user) {
              var tokensPreBet;
              var tokensPostBet;
-             var checkUser = false;
              var validBet = true;
-             var tokens;
-             
-             $.ajax({
-                     type: 'GET',
-                     dataType: 'json',
-                     url: 'C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json',
-                     data: {get_param: "value"},
-                     success: function (data) {
-                         tokens = JSON.parse('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json'); 
-                         for (i=0; i < tokens.length; i++) {
-                            if (tokens[i].username == user) {
-                                checkUser = true;
-                                tokensPreBet = tokens[i].number;
-                            }
-                        }
-                        
-                    }
-             });
-             
-                    
-             if (checkUser == false) {
-                  //tokens.push(username: user, number: 0);
-                  tokensPreBet = 0;
-             } 
-             
-             if (bet > tokensPreBet) {
-                  validBet = false;
-                  tokensPostBet = tokensPreBet;
+             var tokenArray = [];
+             for (var i in localStorage) {
+                 tokenArray[i] = localStorage[i];
              }
-             else if (tokensPostBet < 0) {
+             
+             //Check for existing user tokens
+             if (tokenArray.length == 0 || localStorage.getItem(user) === null) {
+                 localStorage.setItem(user, "0");
+                 tokensPreBet = localStorage.getItem(user);
+             }
+             else if (localStorage.getItem(user) !== null) {
+                 tokensPreBet = localStorage.getItem(user);
+             }
+             
+             //Adjust amount of tokens
+             if (bet > tokensPreBet || tokensPostBet < 0) {
                   validBet = false;
                   tokensPostBet = tokensPreBet;
+                  localStorage.setItem(user, tokensPostBet);
              }
              else {
                   tokensPostBet = tokensPreBet - bet;
+                  localStorage.setItem(user, tokensPostBet);
              }
 
-             for (i=0; i < tokens.length; i++) {
-                  if (tokens[i].username == user) {
-                     tokens[i].number = tokensPostBet;
-                  }
-             }
              return tokensPreBet, tokensPostBet, validBet;
         }
         
         function slotWinnings(winnings, user) {
-            var totalTokens;        
-            $.ajax({
-                     type: 'GET',
-                     dataType: 'json',
-                     url: 'C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json',
-                     data: {get_param: "value"},
-                     success: function (data) {
-                         var tokens = JSON.parse('C:\Users\Whitney\Documents\GitHub\basicBot\TOKEns\tokens.json'); 
-                         for (i=0; i < tokens.length; i++) {
-                            if (tokens[i].username == user) {
-                            tokens[i].number = tokens[i].number + winnings;
-                            totalTokens = tokens[i].number;
-                         }
-                     }
-                        
-                 }
-             });
-            return totalTokens;
+             var userTokens = parseInt(localStorage.getItem(user)) + winnings;
+             localStorage.setItem(user, userTokens);
+             return userTokens;
         }
 
         //slots
@@ -594,25 +561,22 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' ');
                     var player = chat.un; 
+                    var updatedTokens;
                     var bet = msg.substring(space + 1);
                     bet = Math.round(bet);      
-                    var updatedTokens;
                                    
                     //Check Users TOKEn count...
-                    var playerTokens; // = checkTokens(bet, player);
+                    var playerTokens = checkTokens(bet, player);  
                     
-                    //Remove this when done testing!!!!!!
-                    playerTokens = bet;
-                    
-                    if (bet > playerTokens[0]) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
-                    } 
+                    if (playerTokens[2] == false || bet > playerTokens[0]) {
+                       return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing.");  
+                    }
                     else if (bet == 0) { 
                         return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
                     }
                     else {
                         var outcome = spinOutcome(bet);
-                        //updatedTokens = slotWinnings(outcome[3], player);
+                        updatedTokens = slotWinnings(outcome[3], player);
                     }
                     
                     //Display Slots
@@ -632,13 +596,16 @@
                          
                      //Display Outcome
                     if (outcome[3] == 0) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000); 
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000);
+                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 9000);  
                     }
                     else if (outcome[3] == (bet * 7)) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! Lucky number seven strikes again -- Don't spend them all in one place!")}, 7000);   
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns!")}, 7000);
+                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 9000);      
                     }
                     else {
                         setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
+                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. How about another spin?")}, 9000); 
                     }
                 } 
             } 
