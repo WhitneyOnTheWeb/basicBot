@@ -503,7 +503,8 @@
                     if (space === -1) { 
                          API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
                     } 
-                    else if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
+                    
+                    if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
                          gift = 1;
                     }
                        
