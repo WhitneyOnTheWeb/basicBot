@@ -605,26 +605,10 @@
         }
         
         function checkTokens(bet, user) {
-             var tokensPreBet;
+             var tokensPreBet = validateTokens(user);
              var tokensPostBet;
              var validBet = true;
-             
-             //Check for existing user tokens
-             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
-                 localStorage.setItem(user, "0");
-                 tokensPreBet = localStorage.getItem(user);
-             }
-             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
-                 tokensPreBet = localStorage.getItem(user);
-             }
-             else {
-                 tokensPreBet = localStorage.getItem(user);
-             }
-             
-             if (tokensPreBet == "undefined") {
-                 tokensPreBet = 0;
-             }
-             
+
              //Adjust amount of tokens
              if (bet > tokensPreBet) {
                   validBet = false;
