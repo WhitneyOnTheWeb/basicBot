@@ -483,30 +483,24 @@
                     var msg = chat.message; 
 					var space = msg.indexOf(' ');
                     var updatedTokens;
-                    var startingTokens = localStorage.getItem(chat.un);
+                    var name = msg.substring(space + 2);
+                    var parse = msg.Split(' ');
+                    var gift = parse[2];
+                    var user = bot.userUtilities.lookupUserName(name); 
+                    var startingTokens = validateTokens(user);
                     
                     if (space === -1) { 
                          API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
                          return false; 
                     } 
-                    else { 
-                         var name = msg.substring(space + 2);
-                         var parse = msg.Split(' ');
-                         var gift = parse[2];
-                         var user = bot.userUtilities.lookupUserName(name); 
-                         
+                    else {                          
                          if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
                              gift = 1;
-                         }
-                         
-                         if (user === false || !user.inRoom) { 
-                             return API.sendChat("/me @" + chat.un + ", @" + user + " isn't here. You can't give them tokens right now."); 
-                         } 
-                         else { 
-                             updatedTokens = Math.round(gift) + startingTokens;
-                             localStorage.setItem(user, updatedTokens);
-                             return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns."); 
-                         } 
+                    }
+                       
+                    updatedTokens = Math.round(gift) + startingTokens;
+                    localStorage.setItem(user, updatedTokens);
+                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns.");
                     } 
                 }
             }
