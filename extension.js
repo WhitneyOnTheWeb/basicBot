@@ -577,15 +577,8 @@
 					var space = msg.indexOf(' ');
                     var player = chat.un; 
                     var updatedTokens;
-                    var bet;
-                    
-                    if (isNaN(bet)) {
-                        bet = 1;
-                    }
-                    else {
-                        bet = msg.substring(space + 1);
-                    }
-                                
+                    var bet = msg.substring(space + 1);
+       
                     //Fix bet if blank
                     if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots" || isNaN(bet)) {
                         bet = 1;
@@ -623,7 +616,7 @@
                          
                      //Display Outcome
                     if (outcome[3] == 0) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. I hear gambling is addictive... want to try again?")}, 7000);
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything.")}, 7000);
                         setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 9000);  
                     }
                     else if (outcome[3] == (bet * 7)) {
