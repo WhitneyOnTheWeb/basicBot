@@ -497,11 +497,11 @@
                          if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
                              gift = 1;
                          }
+                    }
                        
-                         updatedTokens = Math.round(gift) + startingTokens;
-                         localStorage.setItem(user, updatedTokens);
-                         return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns.");
-                    } 
+                    updatedTokens = Math.round(gift) + startingTokens;
+                    localStorage.setItem(user, updatedTokens);
+                    return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns.");
                 }
             }
         };
