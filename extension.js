@@ -576,7 +576,7 @@
              }
              
              //Check for existing user tokens
-             if (tokenArray.length == 0 || localStorage.getItem(user) === null) {
+             if (tokenArray.length == 0 || localStorage.getItem(user) === null || localStorage.getItem(user) == 'undefined') {
                  localStorage.setItem(user, "0");
                  tokensPreBet = localStorage.getItem(user);
              }
