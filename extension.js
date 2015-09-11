@@ -540,6 +540,9 @@
         
         function slotWinnings(winnings, user) {
              var userTokens = parseInt(localStorage.getItem(user)) + winnings;
+             if (isNaN(userTokens)) {
+                 userTokens = winnings;
+             }
              localStorage.setItem(user, userTokens);
              return userTokens;
         }
