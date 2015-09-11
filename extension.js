@@ -472,7 +472,7 @@
         
         // !givetokens
         bot.commands.givetokensCommand = {
-            command: 'givetokens',  //The command to be called. With the standard command literal this would be: !cleartokens
+            command: 'givetokens',  //The command to be called. With the standard command literal this would be: !givetokens
             rank: 'manager', //Minimum user permission to use the command
             type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
             functionality: function (chat, cmd) {
@@ -572,21 +572,21 @@
              var tokensPreBet;
              var tokensPostBet;
              var validBet = true;
-             var tokenArray = [];
-             for (var i in localStorage) {
-                 tokenArray[i] = localStorage[i];
-             }
              
              //Check for existing user tokens
-             if (tokenArray.length === 0 || localStorage.getItem(user) === null || localStorage.getItem(user) === "undefined") {
+             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
                  localStorage.setItem(user, "0");
                  tokensPreBet = localStorage.getItem(user);
              }
-             else if (localStorage.getItem(user) !== null  || localStorage.getItem(user) !== "undefined") {
+             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
                  tokensPreBet = localStorage.getItem(user);
              }
              else {
                  tokensPreBet = localStorage.getItem(user);
+             }
+             
+             if (tokensPreBet == "undefined") {
+                 tokensPreBet = 0;
              }
              
              //Adjust amount of tokens
@@ -625,10 +625,10 @@
 					var space = msg.indexOf(' ');
                     var player = chat.un; 
                     var updatedTokens;
-                    var bet = msg.substring(space + 1);
+                    var bet = parseInt(msg.substring(space + 1));
        
                     //Fix bet if blank
-                    if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots" || isNaN(bet)) {
+                    if (bet == null || isNaN(bet)) {
                         bet = 1;
                     }
                     bet = Math.round(bet);      
