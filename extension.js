@@ -485,11 +485,6 @@
             var outcome1 = spinSlots(); 
             var outcome2 = spinSlots(); 
             var outcome3 = spinSlots();   
-            
-            //Fix bet if blank
-            if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots") {
-                bet = parseInt("1");
-            }
 
             //Determine Winnings
             if (outcome1[0] == outcome2[0] && outcome1[0] == outcome3[0]) {
@@ -562,7 +557,19 @@
 					var space = msg.indexOf(' ');
                     var player = chat.un; 
                     var updatedTokens;
-                    var bet = msg.substring(space + 1);
+                    var bet;
+                    
+                    if (msg.substring(space + 1) == "!slot" || msg.substring(space + 1) == "!slots") {
+                        bet = 1;
+                    }
+                    else {
+                        bet = msg.substring(space + 1);
+                    }
+                                
+                    //Fix bet if blank
+                    if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots") {
+                        bet = 1;
+                    }
                     bet = Math.round(bet);      
                                    
                     //Check Users TOKEn count...
