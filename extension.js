@@ -522,8 +522,8 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var user = chat.un;
-       
-                    validateTokens(user);
+                    var tokens = validateTokens(user);
+                    
                     API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
                 }
             }
@@ -544,7 +544,8 @@
             else {
                  tokens = localStorage.getItem(user);
             }
-            API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
+            
+            return tokens;
         }
         
         //Slots---------------------------------------------------------------------------------------------------------------------------
