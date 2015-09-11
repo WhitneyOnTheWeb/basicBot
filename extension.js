@@ -491,12 +491,9 @@
                     
                     if (space === -1) { 
                          API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
-                         return false; 
                     } 
-                    else {                          
-                         if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
-                             gift = 1;
-                         }
+                    else if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
+                         gift = 1;
                     }
                        
                     updatedTokens = Math.round(gift) + startingTokens;
