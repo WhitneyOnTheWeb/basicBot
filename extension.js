@@ -462,6 +462,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     localStorage.clear();
+                    API.sendChat("/me TOKEns cleared!");
                 }
             }
         };
