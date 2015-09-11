@@ -451,7 +451,7 @@
             }
         };
         
-        
+        //TOKEns----------------------------------------------------------------------------------------------------------------------------------
         // !cleartokens
         bot.commands.cleartokensCommand = {
             command: 'cleartokens',  //The command to be called. With the standard command literal this would be: !cleartokens
@@ -488,7 +488,7 @@
                     else { 
                          var name = msg.substring(space + 2);
                          var parse = msg.Split(' ');
-                         var gift = parse[2];
+                         var gift = parseInt(parse[2]);
                          var user = bot.userUtilities.lookupUserName(name); 
                          
                          if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
