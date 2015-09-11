@@ -559,7 +559,7 @@
                     var updatedTokens;
                     var bet;
                     
-                    if (msg.substring(space + 1) == "!slot" || msg.substring(space + 1) == "!slots") {
+                    if (msg.substring(space + 1) == "!slot" || msg.substring(space + 1) == "!slots" || isNaN(bet)) {
                         bet = 1;
                     }
                     else {
@@ -567,7 +567,7 @@
                     }
                                 
                     //Fix bet if blank
-                    if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots") {
+                    if (bet == null || bet == "" || bet == " " || bet == "!slot" || bet == "!slots" || isNaN(bet)) {
                         bet = 1;
                     }
                     bet = Math.round(bet);      
