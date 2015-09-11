@@ -467,6 +467,47 @@
             }
         };
         
+        // !givetokens
+        bot.commands.givetokensCommand = {
+            command: 'givetokens',  //The command to be called. With the standard command literal this would be: !cleartokens
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var msg = chat.message; 
+					var space = msg.indexOf(' ');
+                    var updatedTokens;
+                    var startingTokens = localStorage.getItem(chat.un);
+                    
+                    if (space === -1) { 
+                         API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
+                         return false; 
+                    } 
+                    else { 
+                         var name = msg.substring(space + 2);
+                         var parse = msg.Split(' ');
+                         var gift = parse[2];
+                         var user = bot.userUtilities.lookupUserName(name); 
+                         
+                         if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
+                             gift = 1;
+                         }
+                         
+                         if (user === false || !user.inRoom) { 
+                             return API.sendChat("/me @" + chat.un + ", @" + user + " isn't here. You can't give them tokens right now."); 
+                         } 
+                         else { 
+                             updatedTokens = Math.round(gift) + startingTokens;
+                             localStorage.setItem(user, updatedTokens);
+                             return API.sendChat("/me @" + chat.un + " gives @" + user + " " + gift + " TOKEns. @" + user + " now has " + updatedTokens + " TOKEns."); 
+                         } 
+                    } 
+                }
+            }
+        };
+        
         
         //Slots---------------------------------------------------------------------------------------------------------------------------
         function spinSlots() {
