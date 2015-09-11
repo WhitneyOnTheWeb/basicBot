@@ -482,12 +482,12 @@
                 else {
                     var msg = chat.message; 
 					var space = msg.indexOf(' ');
-                    var updatedTokens;
-                    var name = msg.substring(space + 2);
                     var parse = msg.Split(' ');
+                    var name = msg.substring(space + 2);
                     var gift = parse[2];
                     var user = bot.userUtilities.lookupUserName(name); 
                     var startingTokens = validateTokens(user);
+                    var updatedTokens;
                     
                     if (space === -1) { 
                          API.sendChat("/me @" + chat.un + ", you need to specify another user to give TOKEns to."); 
