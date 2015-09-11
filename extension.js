@@ -464,7 +464,7 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     localStorage.clear();
-                    localStorage.setItem("RAWRMedusa", "50");
+                    //localStorage.setItem("RAWRMedusa", "50");
                     localStorage.setItem("Chembot", "5000");
                     API.sendChat("/me TOKEns cleared!");
                 }
@@ -524,7 +524,7 @@
                     var user = chat.un;
                     var tokens = validateTokens(user);
                     
-                    API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
+                    API.sendChat("/me @" + user + ", you have " + tokens + " TOKEns.");
                 }
             }
         };
