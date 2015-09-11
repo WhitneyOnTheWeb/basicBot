@@ -464,7 +464,18 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     localStorage.clear();
-                    localStorage.setItem("RAWRMedusa", "50");
+                    localStorage.setItem("RAWRMedusa", "10");
+                    localStorage.setItem("DJLaunchpad", "10");
+                    localStorage.setItem("DudeLove", "10");
+                    localStorage.setItem("EvilTinkerBell", "10");
+                    localStorage.setItem("Mizzle51", "10");
+                    localStorage.setItem("mux", "10");
+                    localStorage.setItem("NoSpillBlood", "10");
+                    localStorage.setItem("Sinjun", "10");
+                    localStorage.setItem("Understater", "10");
+                    localStorage.setItem("Ozzytu", "5");
+                    localStorage.setItem("Dr_McKay", "5");
+                    localStorage.setItem("JamesThelll", "5");
                     localStorage.setItem("Chembot", "5000");
                     API.sendChat("/me TOKEns cleared!");
                 }
@@ -526,7 +537,7 @@
             
             //Check for existing user tokens
             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
-                 localStorage.setItem(user, "0");
+                 localStorage.setItem(user, "1");
                  tokens = localStorage.getItem(user);
             }
             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
