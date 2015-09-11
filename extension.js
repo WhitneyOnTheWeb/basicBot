@@ -656,7 +656,7 @@
                     //Check Users TOKEn count...
                     var playerTokens = checkTokens(bet, user);  
                     
-                    if (bet > playerTokens[0] || bet > localStorage.getItem(user)) {
+                    if (bet > playerTokens[0]) {
                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing.");  
                     }
                     else if (bet < 0) {
