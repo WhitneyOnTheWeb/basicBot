@@ -1,3 +1,4 @@
+/* global "undefined" */
 (function () {
     
     //Change this to your GitHub username so you don't have to modify so many things.
@@ -511,6 +512,33 @@
             }
         };
         
+        // !tokens
+        bot.commands.tokensCommand = {
+            command: 'tokens',  //The command to be called. With the standard command literal this would be: !tokens
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var user = chat.un;
+                    var tokens; 
+             
+                    //Check for existing user tokens
+                    if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
+                        localStorage.setItem(user, "0");
+                        tokens = localStorage.getItem(user);
+                    }
+                    else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
+                        tokens = localStorage.getItem(user);
+                    }
+                    else {
+                        tokens = localStorage.getItem(user);
+                    }
+                    API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
+                }
+            }
+        };
         
         //Slots---------------------------------------------------------------------------------------------------------------------------
         function spinSlots() {
