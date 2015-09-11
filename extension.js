@@ -578,16 +578,19 @@
              }
              
              //Check for existing user tokens
-             if (tokenArray.length == 0 || localStorage.getItem(user) === null || localStorage.getItem(user) == "undefined") {
+             if (tokenArray.length === 0 || localStorage.getItem(user) === null || localStorage.getItem(user) === "undefined") {
                  localStorage.setItem(user, "0");
                  tokensPreBet = localStorage.getItem(user);
              }
-             else if (localStorage.getItem(user) !== null) {
+             else if (localStorage.getItem(user) !== null  || localStorage.getItem(user) !== "undefined") {
+                 tokensPreBet = localStorage.getItem(user);
+             }
+             else {
                  tokensPreBet = localStorage.getItem(user);
              }
              
              //Adjust amount of tokens
-             if (bet > tokensPreBet || tokensPostBet < 0) {
+             if (bet > tokensPreBet) {
                   validBet = false;
                   tokensPostBet = tokensPreBet;
                   localStorage.setItem(user, tokensPostBet);
