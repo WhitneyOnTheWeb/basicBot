@@ -471,7 +471,7 @@
             }
         };
         
-        // !givetokens
+        // !givetokens - needs to be fixed
         bot.commands.givetokensCommand = {
             command: 'givetokens',  //The command to be called. With the standard command literal this would be: !givetokens
             rank: 'manager', //Minimum user permission to use the command
@@ -620,7 +620,7 @@
                   localStorage.setItem(user, tokensPostBet);
              }
 
-             return tokensPreBet, tokensPostBet, validBet;
+             return [tokensPreBet, tokensPostBet, validBet];
         }
         
         function slotWinnings(winnings, user) {
@@ -643,7 +643,7 @@
                 else { 
                     var msg = chat.message; 
 					var space = msg.indexOf(' ');
-                    var player = chat.un; 
+                    var user = chat.un; 
                     var updatedTokens;
                     var bet = parseInt(msg.substring(space + 1));
        
@@ -654,9 +654,9 @@
                     bet = Math.round(bet);      
                                    
                     //Check Users TOKEn count...
-                    var playerTokens = checkTokens(bet, player);  
+                    var playerTokens = checkTokens(bet, user);  
                     
-                    if (bet > playerTokens[0] || bet > localStorage.getItem(player)) {
+                    if (bet > playerTokens[0] || bet > localStorage.getItem(user)) {
                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing.");  
                     }
                     else if (bet < 0) {
@@ -667,7 +667,7 @@
                     }
                     else {
                         var outcome = spinOutcome(bet);
-                        updatedTokens = slotWinnings(outcome[3], player);
+                        updatedTokens = slotWinnings(outcome[3], user);
                     }
                     
                     //Display Slots
