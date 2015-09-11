@@ -452,6 +452,7 @@
         };
         
         //TOKEns----------------------------------------------------------------------------------------------------------------------------------
+
         // !cleartokens
         bot.commands.cleartokensCommand = {
             command: 'cleartokens',  //The command to be called. With the standard command literal this would be: !cleartokens
@@ -488,7 +489,7 @@
                     else { 
                          var name = msg.substring(space + 2);
                          var parse = msg.Split(' ');
-                         var gift = parseInt(parse[2]);
+                         var gift = parse[2];
                          var user = bot.userUtilities.lookupUserName(name); 
                          
                          if (gift == null || gift == "" || gift == " " || gift == "!givetokens" || isNaN(gift)) {
@@ -630,8 +631,11 @@
                     //Check Users TOKEn count...
                     var playerTokens = checkTokens(bet, player);  
                     
-                    if (playerTokens[2] == false || bet > playerTokens[0]) {
+                    if (bet > playerTokens[0] || bet > localStorage.getItem(player)) {
                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing.");  
+                    }
+                    else if (bet < 0) {
+                       return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't do that.");   
                     }
                     else if (bet == 0) { 
                         return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
