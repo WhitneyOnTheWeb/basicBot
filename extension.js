@@ -522,23 +522,30 @@
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
                     var user = chat.un;
-                    var tokens; 
-             
-                    //Check for existing user tokens
-                    if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
-                        localStorage.setItem(user, "0");
-                        tokens = localStorage.getItem(user);
-                    }
-                    else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
-                        tokens = localStorage.getItem(user);
-                    }
-                    else {
-                        tokens = localStorage.getItem(user);
-                    }
+       
+                    validateTokens(user);
                     API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
                 }
             }
         };
+        
+        //Validate Tokens
+        function validateTokens(user){
+            var tokens; 
+            
+            //Check for existing user tokens
+            if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
+                 localStorage.setItem(user, "0");
+                 tokens = localStorage.getItem(user);
+            }
+            else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
+                 tokens = localStorage.getItem(user);
+            }
+            else {
+                 tokens = localStorage.getItem(user);
+            }
+            API.sendChat("/me @" + chat.un + ", you have " + tokens + " TOKEns.");
+        }
         
         //Slots---------------------------------------------------------------------------------------------------------------------------
         function spinSlots() {
