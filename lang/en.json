@@ -27,7 +27,7 @@
         "bakes you fresh cookies, it smells amazing.",
         "gives you some cookies that look a little green. Eating them makes you feel funny. Woooah...",
         "gives you a box of animal crackers... raaaaawr!",
-        "gives you some cookies that say \"Not for children\" on the package. Double dose ganja-bites made with love!"
+        "gives you some cookies that say \"Not for children\" on the package. Doubledose ganja bites made with love!"
     ],
     "balls": [
         "Signs point to yes.",
@@ -67,9 +67,12 @@
         "Don't bet on it.",
         "Forget about it."
     ],
-    "derp": "\/me [@%%NAME%%] http\/\/33.media.tumblr.com\/tumblr_lfclubAcxw1qe91wdo1_400.gif",
-    "bacon": "\/me [@%%NAME%%] http:\/\/big.assets.huffingtonpost.com\/slide_297900_2459978_free.gif",
-    "blazing": "\/me [@%%NAME%%] http:\/\/i.imgur.com\/tcnm9.gif",
+    "slots": [
+        {"winner": ", YOU'RE A WINNER! You've won %%TOKENS%% TOKEns!",
+         "jackpot": ", YOU'VE HIT THE JACKPOT, worth %%TOKENS%% TOKEns! Don't spend them all in one place!",
+         "loser": ", YOU'RE A LOSER! Awww, too bad... you didn't win anything. Gambling is more addictive than marijuana, care to try again?"
+        }
+    ],
     "inventory": "\/me @%%NAME%% screams \"PHYSICAL FUCKING INVENTORY\" and looks around the room to see who's here.",
     "nodatafound": "No previous data found.",
     "currentlang": "\/me Language currently set to: %%LANGUAGE%%",
@@ -218,5 +221,5 @@
     "voteratio": "\/me [@%%NAME%%] @%%USERNAME%% ~ woots: %%WOOT%%, mehs: %%MEHS%%, ratio (w\/m): %%RATIO%%.",
     "website": "\/me Please visit our website: %%LINK%%",
     "youtube": "\/me [%%NAME%%] Subscribe to us on youtube: %%LINK%%",
-    "songstatistics": "\/me %%ARTIST%% - %%TITLE%%: %%WOOTS%%W\/%%GRABS%%G\/%%MEHS%%M."
+    "songstatistics": "\/me %%ARTIST%% - %%TITLE%%: :green_heart:%%WOOTS%%\/:smiling_imp:%%GRABS%%\/:broken_heart:%%MEHS%%."
 }
