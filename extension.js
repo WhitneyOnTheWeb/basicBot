@@ -592,19 +592,19 @@
                 winnings = Math.round(bet * outcome1[1]);
             }
             else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
-                winnings = Math.round(bet * (.3 * outcome1[1]));
+                winnings = Math.round(bet * (.34 * outcome1[1]));
             }
             else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
-                winnings = Math.round(bet * (.35 * outcome1[1]));
+                winnings = Math.round(bet * (.4 * outcome1[1]));
             }
             else if (outcome2[0] == outcome3[0] && outcome2[0] != outcome1[0]) {
-                winnings = Math.round(bet * (.25 * outcome2[1]));
+                winnings = Math.round(bet * (.3 * outcome2[1]));
             }
             else{
                 winnings = 0;  
             }
                         
-             return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
+            return [outcome1[0], outcome2[0], outcome3[0], winnings];                      
         }
         
         function checkTokens(bet, user) {
@@ -613,16 +613,15 @@
              var validBet = true;
 
              //Adjust amount of tokens
-             if (bet > tokensPreBet) {
+             if (bet > tokensPreBet || bet < 0) {
                   validBet = false;
                   tokensPostBet = tokensPreBet;
-                  localStorage.setItem(user, tokensPostBet);
              }
              else {
                   tokensPostBet = tokensPreBet - bet;
-                  localStorage.setItem(user, tokensPostBet);
              }
-
+             
+             localStorage.setItem(user, tokensPostBet);
              return [tokensPreBet, tokensPostBet, validBet];
         }
         
