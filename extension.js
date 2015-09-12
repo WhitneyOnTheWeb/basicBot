@@ -655,18 +655,27 @@
                     }
                     bet = Math.round(bet);      
                                    
-                    //Check Users TOKEn count...
                     var playerTokens = checkTokens(bet, user);  
                     
+                    //Prevent invalid betting
                     if (bet > playerTokens[0]) {
-                       return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing.");  
+                        if (playerTokens[0] === 0){
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but doesn't have any TOKEns! How embarassing."); 
+                        } 
+                        else if (playerTokens[0] === 1) {
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has one TOKEn! Wanna press your luck?"); 
+                        }
+                        else {
+                            return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots, but only has " + playerTokens[0] + " TOKEns! How embarassing."); 
+                        }
                     }
                     else if (bet < 0) {
-                       return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't do that.");   
+                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't do that."); 
                     }
-                    else if (bet == 0) { 
-                        return API.sendChat("/me @" + chat.un + " tries to bet " + bet + " TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
+                    else if (bet === 0) { 
+                        return API.sendChat("/me @" + chat.un + " tries to bet no TOKEns at the ChemSlots... you can't play for free! Cheap skate."); 
                     }
+                    //Process valid bets
                     else {
                         var outcome = spinOutcome(bet);
                         updatedTokens = slotWinnings(outcome[3], user);
@@ -687,18 +696,15 @@
                         return false; 
                     }
                          
-                     //Display Outcome
+                    //Display Outcome
                     if (outcome[3] == 0) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything.")}, 7000);
-                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 9000);  
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000);  
                     }
                     else if (outcome[3] == (bet * 7)) {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns!")}, 7000);
-                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 9000);      
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you hit the JACKPOT and won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. Don't spend them all in one place!")}, 7000);      
                     }
                     else {
-                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! How about another spin?")}, 7000);
-                        setTimeout(function() {API.sendChat("/me You have " + updatedTokens + " TOKEns. How about another spin?")}, 9000); 
+                        setTimeout(function() {API.sendChat("/me @" + chat.un + ", you're a WINNER! You've won " + outcome[3] + " TOKEns! You have " + updatedTokens + " TOKEns. How about another spin?")}, 7000); 
                     }
                 } 
             } 
