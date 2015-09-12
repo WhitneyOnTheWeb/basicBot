@@ -473,11 +473,12 @@
                     localStorage.setItem("NoSpillBlood", "10");
                     localStorage.setItem("Sinjun", "10");
                     localStorage.setItem("Understater", "10");
+                    localStorage.setItem("Atomikat13", "10");
                     localStorage.setItem("Ozzytu", "5");
                     localStorage.setItem("Dr_McKay", "5");
                     localStorage.setItem("JamesThelll", "5");
                     localStorage.setItem("Chembot", "5000");
-                    API.sendChat("/me TOKEns cleared!");
+                    API.sendChat("/me TOKEns reset!");
                 }
             }
         };
@@ -592,7 +593,7 @@
                 winnings = Math.round(bet * outcome1[1]);
             }
             else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
-                winnings = Math.round(bet * (.34 * outcome1[1]));
+                winnings = Math.round(bet * (.35 * outcome1[1]));
             }
             else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
                 winnings = Math.round(bet * (.4 * outcome1[1]));
