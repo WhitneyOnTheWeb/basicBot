@@ -593,13 +593,13 @@
                 winnings = Math.round(bet * outcome1[1]);
             }
             else if (outcome1[0] == outcome2[0] && outcome1[0] != outcome3[0]) {
-                winnings = Math.round(bet * (.35 * outcome1[1]));
+                winnings = Math.round(bet * (.5 * outcome1[1]));
             }
             else if (outcome1[0] == outcome3[0] && outcome1[0] != outcome2[0]) {
-                winnings = Math.round(bet * (.4 * outcome1[1]));
+                winnings = Math.round(bet * (.55 * outcome1[1]));
             }
             else if (outcome2[0] == outcome3[0] && outcome2[0] != outcome1[0]) {
-                winnings = Math.round(bet * (.3 * outcome2[1]));
+                winnings = Math.round(bet * (.45 * outcome2[1]));
             }
             else{
                 winnings = 0;  
@@ -703,7 +703,7 @@
                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have one TOKEn. I hear gambling is addictive... want to try again?")}, 7000);   
                         }  
                         else if (updatedTokens === 0) {
-                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have one TOKEn. I hear gambling is addictive... want to try again?")}, 7000);
+                            setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You don't have anymore TOKens... you're ruined, ya bum! Get outta here!")}, 7000);
                         }
                         else {
                             setTimeout(function() {API.sendChat("/me @" + chat.un + ", tough luck, loser! You didn't win anything. You have " + updatedTokens + " TOKEns. I hear gambling is addictive... want to try again?")}, 7000);
