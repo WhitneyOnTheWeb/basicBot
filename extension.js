@@ -550,7 +550,7 @@
                     var giverTokens = validateTokens(chat.un);
                     var receiverTokens = validateTokens(receiver);
                     var DJ = API.getDJ(); 
-                    var currentDJ = dj.username;
+                    var currentDJ = DJ.username;
             
                     if (giverTokens <= 0) {
                         return API.sendChat("/me @" + chat.un + " tries to tip @" + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
