@@ -549,16 +549,24 @@
                     var receiver = msg.substring(space + 2); 
                     var giverTokens = validateTokens(chat.un);
                     var receiverTokens = validateTokens(receiver);
+                    var currentDJ = API.getDJ(); 
             
                     if (giverTokens <= 0) {
-                        return API.sendChat("/me @" + chat.un + " tries to tip " + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
+                        return API.sendChat("/me @" + chat.un + " tries to tip @" + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
                     }
                     else {
                         receiverTokens = receiverTokens + 1;
-                        giverTokens = giverTokens - 1;                        
-                        localStorage.setItem(receiver, receiverTokens);
-                        localStorage.setItem(chat.un, giverTokens);
-                        return API.sendChat("/me @" + chat.un + " tips " + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + "TOKEns.");
+                        giverTokens = giverTokens - 1;
+                        if (space === -1) { 
+                            receiverTokens = validateTokens(currentDJ);
+                            receiverTokens = receiverTokens + 1; //Repeat check in the event tip is for current DJ.
+                            return API.sendChat("/me @" + chat.un + " tips @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverTokens + " TOKEns left. @" + currentDJ + " now has " + receiverTokens + " TOKEns."); 
+                        }
+                        else {                        
+                            localStorage.setItem(receiver, receiverTokens);
+                            localStorage.setItem(chat.un, giverTokens);
+                            return API.sendChat("/me @" + chat.un + " tips @" + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + "TOKEns.");
+                        }
                     }
                 }
             }
@@ -570,7 +578,7 @@
             
             //Check for existing user tokens
             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
-                 localStorage.setItem(user, "0");
+                 localStorage.setItem(user, "1");
                  tokens = localStorage.getItem(user);
             }
             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
