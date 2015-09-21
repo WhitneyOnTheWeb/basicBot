@@ -555,17 +555,18 @@
                         return API.sendChat("/me @" + chat.un + " tries to tip @" + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
                     }
                     else {
-                        receiverTokens += receiverTokens;
-                        giverTokens -= giverTokens;
+                        receiverTokens += 1;
+                        giverTokens -= 1;
+                        localStorage.setItem(chat.un, giverTokens);
                         if (space === -1) { 
                             receiverTokens = validateTokens(currentDJ);
-                            receiverTokens += receiverTokens; //Repeat check in the event tip is for current DJ.
+                            receiverTokens += 1; //Repeat check in the event tip is for current DJ.
+                            localStorage.setItem(currentDJ, receiverTokens);
                             return API.sendChat("/me @" + chat.un + " tips @" + currentDJ + " for their contirbution to the art of great music.  @" + chat.un + " has " + giverTokens + " TOKEns left. @" + currentDJ + " now has " + receiverTokens + " TOKEns."); 
                         }
                         else {                        
                             localStorage.setItem(receiver, receiverTokens);
-                            localStorage.setItem(chat.un, giverTokens);
-                            return API.sendChat("/me @" + chat.un + " tips @" + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + "TOKEns.");
+                            return API.sendChat("/me @" + chat.un + " tips @" + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + " TOKEns.");
                         }
                     }
                 }
