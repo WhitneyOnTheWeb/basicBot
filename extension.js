@@ -471,6 +471,7 @@
                     localStorage.setItem("Mizzle51", "10");
                     localStorage.setItem("mux", "10");
                     localStorage.setItem("NoSpillBlood", "10");
+                    localStorage.setItem("TwinKarma", "10");
                     localStorage.setItem("Sinjun", "10");
                     localStorage.setItem("Understater", "10");
                     localStorage.setItem("Atomikat13", "10");
@@ -532,6 +533,36 @@
                 }
             }
         };
+       
+        
+        // !tip
+        bot.commands.tipCommand = {
+            command: 'tip',  //The command to be called. With the standard command literal this would be: !tip
+            rank: 'user', //Minimum user permission to use the command
+            type: 'startsWith', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var msg = chat.message; 
+                    var space = msg.indexOf(' ');
+                    var receiver = msg.substring(space + 2); 
+                    var giverTokens = validateTokens(chat.un);
+                    var receiverTokens = validateTokens(receiver);
+            
+                    if (giverTokens <= 0) {
+                        return API.sendChat("/me @" + chat.un + " tries to tip " + receiver + ", for the awesome tunes, but doesn't have any TOKEns! It's the thought that counts, right?"); 
+                    }
+                    else {
+                        receiverTokens = receiverTokens + 1;
+                        giverTokens = giverTokens - 1;                        
+                        localStorage.setItem(receiver, receiverTokens);
+                        localStorage.setItem(chat.un, giverTokens);
+                        return API.sendChat("/me @" + chat.un + " tips " + receiver + " for throwing down great tracks! @" + chat.un + " has " + giverTokens + " TOKEns left. @" + receiver + " now has " + receiverTokens + "TOKEns.");
+                    }
+                }
+            }
+        };
         
         //Validate Tokens
         function validateTokens(user){
@@ -539,7 +570,7 @@
             
             //Check for existing user tokens
             if (localStorage.getItem(user) == null || localStorage.getItem(user) == "undefined") {
-                 localStorage.setItem(user, "1");
+                 localStorage.setItem(user, "0");
                  tokens = localStorage.getItem(user);
             }
             else if (localStorage.getItem(user) !== null  && localStorage.getItem(user) !== "undefined") {
