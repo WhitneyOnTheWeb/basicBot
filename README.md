@@ -52,11 +52,14 @@ Triggers
 
 Feature Requests:
 
-    Slots
+    Slots (Implemented?)
     Bowling
     Dice Game
     Lottery
     Coin Flip
+    !MehWarn - Warn users for Meh
+    !MehBlock - Block Users for Meh
+    !Asshole - "No you're not wrong Walter, you're just an asshole"
 
 
 Copyright
